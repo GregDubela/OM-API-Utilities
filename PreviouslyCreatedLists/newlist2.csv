@@ -1,0 +1,948 @@
+List,title,Statistical Terms - Beginners,description,A review of Statistical Terms , , 
+List,format,vocabulary,,,,
+Item,word,Affirming the antecedent.,,,,
+Item,defn,"A valid logical argument that concludes from the premise A ? B and the premise A that therefore, B is true. The name comes from the fact that the argument affirms (i.e., asserts as true) the antecedent (A) in the conditional.",,,,
+Item,word,Affirming the consequent.,,,,
+Item,defn,"A logical fallacy that argues from the premise A ? B and the premise B that therefore, A is true. The name comes from the fact that the argument affirms (i.e., asserts as true) the consequent (B) in the conditional.",,,,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+,,Axioms of Probability.
+,,"There are three axioms of probability: (1) Chances are always at least zero. (2) The chance that something happens is 100%. (3) If two events cannot both occur at the same time (if they are disjoint or mutually exclusive), the chance that either one occurs is the sum of the chances that each occurs. For example, consider an experiment that consists of tossing a coin once. The first axiom says that the chance that the coin lands heads, for instance, must be at least zero. The second axiom says that the chance that the coin either lands heads or lands tails or lands on its edge or doesn't land at all is 100%. The third axiom says that the chance that the coin either lands heads or lands tails is the sum of the chance that the coin lands heads and the chance that the coin lands tails, because both cannot occur in the same coin toss. All other mathematical facts about probability can be derived from these three axioms. For example, it is true that the chance that an event does not occur is (100% ? the chance that the event occurs). This is a consequence of the second and third axioms."
+
+
+,,
+,,
+
+,,Base rate fallacy.
+,,"The base rate fallacy consists of failing to take into account prior probabilities (base rates) when computing conditional probabilities from other conditional probabilities. It is related to the Prosecutor's Fallacy. For instance, suppose that a test for the presence of some condition has a 1% chance of a false positive result (the test says the condition is present when it is not) and a 1% chance of a false negative result (the test says the condition is absent when the condition is present), so the exam is 99% accurate. What is the chance that an item that tests positive really has the condition? The intuitive answer is 99%, but that is not necessarily true: the correct answer depends on the fraction f of items in the population that have the condition (and on whether the item tested is selected at random from the population). The chance that a randomly selected item tests positive is 0.99×f/(0.99×f + 0.01×(1?f)), which could be much smaller than 99% if f is small. See Bayes' Rule."
+,,Bayes' Rule.
+,,Bayes' rule expresses the conditional probability of the event A given the event B in terms of the conditional probability of the event B given the event A and the unconditional probability of A:
+,,
+,,P(A|B) = P(B|A) ×P(A)/( P(B|A)×P(A) + P(B|Ac) ×P(Ac) ).
+,,
+,,"In this expression, the unconditional probability of A is also called the prior probability of A, because it is the probability assigned to A prior to observing any data. Similarly, in this context, P(A|B) is called the posterior probability of A given B, because it is the probability of A updated to reflect (i.e., to condition on) the fact that B was observed to occur."
+,,Bernoulli's Inequality.
+,,"The Bernoulli Inequality says that if x ? ?1 then (1+x)n ? 1 + nx for every integer n ? 0. If n is even, the inequality holds for all x."
+,,Bias.
+,,"A measurement procedure or estimator is said to be biased if, on the average, it gives an answer that differs from the truth. The bias is the average (expected) difference between the measurement and the truth. For example, if you get on the scale with clothes on, that biases the measurement to be larger than your true weight (this would be a positive bias). The design of an experiment or of a survey can also lead to bias. Bias can be deliberate, but it is not necessarily so. See also nonresponse bias."
+,,Bimodal.
+,,Having two modes.
+,,Bin.
+,,See class interval.
+,,Binomial Coefficient.
+,,See combinations.
+,,Binomial Distribution.
+,,"A random variable has a binomial distribution (with parameters n and p) if it is the number of ""successes"" in a fixed number n of independent random trials, all of which have the same probability p of resulting in ""success."" Under these assumptions, the probability of k successes (and n?k failures) is nCk pk(1?p)n?k, where nCk is the number of combinations of n objects taken k at a time: nCk = n!/(k!(n?k)!). The expected value of a random variable with the Binomial distribution is n×p, and the standard error of a random variable with the Binomial distribution is (n×p×(1 ? p))½. This page shows the probability histogram of the binomial distribution."
+,,Binomial Theorem.
+,,The Binomial theorem says that (x+y)n = xn + nxn?1y + … + nCkxn?kyk + … + yn.
+,,Bivariate.
+,,"Having or having to do with two variables. For example, bivariate data are data where we have two measurements of each ""individual."" These measurements might be the heights and weights of a group of people (an ""individual"" is a person), the heights of fathers and sons (an ""individual"" is a father-son pair), the pressure and temperature of a fixed volume of gas (an ""individual"" is the volume of gas under a certain set of experimental conditions), etc. Scatterplots, the correlation coefficient, and regression make sense for bivariate data but not univariate data. C.f. univariate."
+,,"Blind, Blind Experiment."
+,,"In a blind experiment, the subjects do not know whether they are in the treatment group or the control group. In order to have a blind experiment with human subjects, it is usually necessary to administer a placebo to the control group."
+,,Bootstrap estimate of Standard Error.
+,,"The name for this idea comes from the idiom ""to pull oneself up by one's bootstraps,"" which connotes getting out of a hole without anything to stand on. The idea of the bootstrap is to assume, for the purposes of estimating uncertainties, that the sample is the population, then use the SE for sampling from the sample to estimate the SE of sampling from the population. For sampling from a box of numbers, the SD of the sample is the bootstrap estimate of the SD of the box from which the sample is drawn. For sample percentages, this takes a particularly simple form: the SE of the sample percentage of n draws from a box, with replacement, is SD(box)/n½, where for a box that contains only zeros and ones, SD(box) = ((fraction of ones in box)×(fraction of zeros in box) )½. The bootstrap estimate of the SE of the sample percentage consists of estimating SD(box) by ((fraction of ones in sample)×(fraction of zeros in sample))½. When the sample size is large, this approximation is likely to be good."
+,,Box model.
+,,"An analogy between an experiment and drawing numbered tickets ""at random"" from a box with replacement. For example, suppose we are trying to evaluate a cold remedy by giving it or a placebo to a group of n individuals, randomly choosing half the individuals to receive the remedy and half to receive the placebo. Consider the median time to recovery for all the individuals (we assume everyone recovers from the cold eventually; to simplify things, we also assume that no one recovered in exactly the median time, and that n is even). By definition, half the individuals got better in less than the median time, and half in more than the median time. The individuals who received the treatment are a random sample of size n/2 from the set of n subjects, half of whom got better in less than median time, and half in longer than median time. If the remedy is ineffective, the number of subjects who received the remedy and who recovered in less than median time is like the sum of n/2 draws with replacement from a box with two tickets in it: one with a ""1"" on it, and one with a ""0"" on it. This page illustrates the sampling distribution of random draws with or without from a box of numbered tickets."
+,,Breakdown Point.
+,,The breakdown point of an estimator is the smallest fraction of observations one must corrupt to make the estimator take any value one wants.
+
+,,
+,,C
+
+,,Categorical Variable.
+,,"A variable whose value ranges over categories, such as {red, green, blue}, {male, female}, {Arizona, California, Montana, New York}, {short, tall}, {Asian, African-American, Caucasian, Hispanic, Native American, Polynesian}, {straight, curly}, etc. Some categorical variables are ordinal. The distinction between categorical variables and qualitative variables is a bit blurry. C.f. quantitative variable."
+,,"Causation, causal relation."
+,,"Two variables are causally related if changes in the value of one cause the other to change. For example, if one heats a rigid container filled with a gas, that causes the pressure of the gas in the container to increase. Two variables can be associated without having any causal relation, and even if two variables have a causal relation, their correlation can be small or zero."
+,,Central Limit Theorem.
+,,"The central limit theorem states that the probability histograms of the sample mean and sample sum of n draws with replacement from a box of labeled tickets converge to a normal curve as the sample size n grows, in the following sense: As n grows, the area of the probability histogram for any range of values approaches the area under the normal curve for the same range of values, converted to standard units. See also the normal approximation."
+,,Certain Event.
+,,"An event is certain if its probability is 100%. Even if an event is certain, it might not occur. However, by the complement rule, the chance that it does not occur is 0%."
+,,"Chance variation, chance error."
+,,"A random variable can be decomposed into a sum of its expected value and chance variation around its expected value. The expected value of the chance variation is zero; the standard error of the chance variation is the same as the standard error of the random variable—the size of a ""typical"" difference between the random variable and its expected value. See also sampling error."
+,,Change of Units or Variables.
+,,See also transformation.
+,,Chebychev's Inequality.
+,,"For lists: For every number k>0, the fraction of elements in a list that are k SD's or further from the arithmetic mean of the list is at most 1/k2."
+,,"For random variables: For every number k>0, the probability that a random variable X is k SEs or further from its expected value is at most 1/k2."
+,,Chi-square curve.
+,,"The chi-square curve is a family of curves that depend on a parameter called degrees of freedom (d.f.). The chi-square curve is an approximation to the probability histogram of the chi-square statistic for multinomial model if the expected number of outcomes in each category is large. The chi-square curve is positive, and its total area is 100%, so we can think of it as the probability histogram of a random variable. The balance point of the curve is d.f., so the expected value of the corresponding random variable would equal d.f.. The standard error of the corresponding random variable would be (2×d.f.)½. As d.f. grows, the shape of the chi-square curve approaches the shape of the normal curve. This page shows the chi-square curve."
+,,Chi-square Statistic.
+,,"The chi-square statistic is used to measure the agreement between categorical data and a multinomial model that predicts the relative frequency of outcomes in each possible category. Suppose there are n independent trials, each of which can result in one of k possible outcomes. Suppose that in each trial, the probability that outcome i occurs is pi, for i = 1, 2, … , k, and that these probabilities are the same in every trial. The expected number of times outcome 1 occurs in the n trials is n×p1; more generally, the expected number of times outcome i occurs is"
+
+,,expectedi = n×pi.
+
+,,"If the model be correct, we would expect the n trials to result in outcome i about n×pi times, give or take a bit. Let observedi denote the number of times an outcome of type i occurs in the n trials, for i = 1, 2, … , k. The chi-squared statistic summarizes the discrepancies between the expected number of times each outcome occurs (assuming that the model is true) and the observed number of times each outcome occurs, by summing the squares of the discrepancies, normalized by the expected numbers, over all the categories:"
+
+,,chi-squared =
+
+,,(observed1 ? expected1)2/expected1 + (observed2 ? expected2)2/expected2 + … + (observedk ? expectedk)2/expectedk.
+
+,,"As the sample size n increases, if the model is correct, the sampling distribution of the chi-squared statistic is approximated increasingly well by the chi-squared curve with"
+
+,,(#categories ? 1) = k ? 1
+
+,,"degrees of freedom (d.f.), in the sense that the chance that the chi-squared statistic is in any given range grows closer and closer to the area under the Chi-Squared curve over the same range. This page illustrates the sampling distribution of the chi-square statistic."
+,,Class Boundary.
+,,"A point that is the left endpoint of one class interval, and the right endpoint of another class interval."
+,,Class Interval.
+,,"In plotting a histogram, one starts by dividing the range of values into a set of non-overlapping intervals, called class intervals, in such a way that every datum is contained in some class interval. See the related entries class boundary and endpoint convention."
+,,Cluster Sample.
+,,"In a cluster sample, the sampling unit is a collection of population units, not single population units. For example, techniques for adjusting the U.S. census start with a sample of geographic blocks, then (try to) enumerate all inhabitants of the blocks in the sample to obtain a sample of people. This is an example of a cluster sample. (The blocks are chosen separately from different strata, so the overall design is a stratified cluster sample.)"
+,,Combinations.
+,,"The number of combinations of n things taken k at a time is the number of ways of picking a subset of k of the n things, without replacement, and without regard to the order in which the elements of the subset are picked. The number of such combinations is nCk = n!/(k!(n?k)!), where k! (pronounced ""k factorial"") is k×(k?1)×(k?2)× … × 1. The numbers nCk are also called the Binomial coefficients. From a set that has n elements one can form a total of 2n subsets of all sizes. For example, from the set {a, b, c}, which has 3 elements, one can form the 23 = 8 subsets {}, {a}, {b}, {c}, {a,b}, {a,c}, {b,c}, {a,b,c}. Because the number of subsets with k elements one can form from a set with n elements is nCk, and the total number of subsets of a set is the sum of the numbers of possible subsets of each size, it follows that nC0+nC1+nC2+ … +nCn = 2n. The calculator has a button (nCm) that lets you compute the number of combinations of m things chosen from a set of n things. To use the button, first type the value of n, then push the nCm button, then type the value of m, then press the ""="" button."
+,,Complement.
+,,The complement of a subset of a given set is the collection of all elements of the set that are not elements of the subset.
+,,Complement rule.
+,,The probability of the complement of an event is 100% minus the probability of the event: P(Ac) = 100% ? P(A).
+,,Compound proposition.
+,,"A logical proposition formed from other propositions using logical operations such as !, |, XOR, &, ? and ?."
+,,Conditional Probability.
+,,"Suppose we are interested in the probability that some event A occurs, and we learn that the event B occurred. How should we update the probability of A to reflect this new knowledge? This is what the conditional probability does: it says how the additional knowledge that B occurred should affect the probability that A occurred quantitatively. For example, suppose that A and B are mutually exclusive. Then if B occurred, A did not, so the conditional probability that A occurred given that B occurred is zero. At the other extreme, suppose that B is a subset of A, so that A must occur whenever B does. Then if we learn that B occurred, A must have occurred too, so the conditional probability that A occurred given that B occurred is 100%. For in-between cases, where A and B intersect, but B is not a subset of A, the conditional probability of A given B is a number between zero and 100%. Basically, one ""restricts"" the outcome space S to consider only the part of S that is in B, because we know that B occurred. For A to have happened given that B happened requires that AB happened, so we are interested in the event AB. To have a legitimate probability requires that P(S) = 100%, so if we are restricting the outcome space to B, we need to divide by the probability of B to make the probability of this new S be 100%. On this scale, the probability that AB happened is P(AB)/P(B). This is the definition of the conditional probability of A given B, provided P(B) is not zero (division by zero is undefined). Note that the special cases AB = {} (A and B are mutually exclusive) and AB = B (B is a subset of A) agree with our intuition as described at the top of this paragraph. Conditional probabilities satisfy the axioms of probability, just as ordinary probabilities do."
+,,Confidence Interval.
+,,A confidence interval for a parameter is a random interval constructed from data in such a way that the probability that the interval contains the true value of the parameter can be specified before the data are collected. Confidence intervals are demonstrated in this page.
+,,Confidence Level.
+,,"The confidence level of a confidence interval is the chance that the interval that will result once data are collected will contain the corresponding parameter. If one computes confidence intervals again and again from independent data, the long-term limit of the fraction of intervals that contain the parameter is the confidence level."
+,,Confounding.
+,,"When the differences between the treatment and control groups other than the treatment produce differences in response that are not distinguishable from the effect of the treatment, those differences between the groups are said to be confounded with the effect of the treatment (if any). For example, prominent statisticians questioned whether differences between individuals that led some to smoke and others not to (rather than the act of smoking itself) were responsible for the observed difference in the frequencies with which smokers and non-smokers contract various illnesses. If that were the case, those factors would be confounded with the effect of smoking. Confounding is quite likely to affect observational studies and experiments that are not randomized. Confounding tends to be decreased by randomization. See also Simpson's Paradox."
+,,Continuity Correction.
+,,"In using the normal approximation to the binomial probability histogram, one can get more accurate answers by finding the area under the normal curve corresponding to half-integers, transformed to standard units. This is clearest if we are seeking the chance of a particular number of successes. For example, suppose we seek to approximate the chance of 10 successes in 25 independent trials, each with probability p = 40% of success. The number of successes in this scenario has a binomial distribution with parameters n = 25 and p = 40%. The expected number of successes is np = 10, and the standard error is (np(1?p))½ = 6½ = 2.45. If we consider the area under the normal curve at the point 10 successes, transformed to standard units, we get zero: the area under a point is always zero. We get a better approximation by considering 10 successes to be the range from 9 1/2 to 10 1/2 successes. The only possible number of successes between 9 1/2 and 10 1/2 is 10, so this is exactly right for the binomial distribution. Because the normal curve is continuous and a binomial random variable is discrete, we need to ""smear out"" the binomial probability over an appropriate range. The lower endpoint of the range, 9 1/2 successes, is (9.5 ? 10)/2.45 = ?0.20 standard units. The upper endpoint of the range, 10 1/2 successes, is (10.5 ? 10)/2.45 = +0.20 standard units. The area under the normal curve between ?0.20 and +0.20 is about 15.8%. The true binomial probability is 25C10×(0.4)10×(0.6)15 = 16%. In a similar way, if we seek the normal approximation to the probability that a binomial random variable is in the range from i successes to k successes, inclusive, we should find the area under the normal curve from i?1/2 to k+1/2 successes, transformed to standard units. If we seek the probability of more than i successes and fewer than k successes, we should find the area under the normal curve corresponding to the range i+1/2 to k?1/2 successes, transformed to standard units. If we seek the probability of more than i but no more than k successes, we should find the area under the normal curve corresponding to the range i+1/2 to k+1/2 successes, transformed to standard units. If we seek the probability of at least i but fewer than k successes, we should find the area under the normal curve corresponding to the range i?1/2 to k?1/2 successes, transformed to standard units. Including or excluding the half-integer ranges at the ends of the interval in this manner is called the continuity correction."
+,,Consequent.
+,,"In a conditional p ? q, the consequent is q."
+,,Continuous Variable.
+,,"A quantitative variable is continuous if its set of possible values is uncountable. Examples include temperature, exact height, exact age (including parts of a second). In practice, one can never measure a continuous variable to infinite precision, so continuous variables are sometimes approximated by discrete variables. A random variable X is also called continuous if its set of possible values is uncountable, and the chance that it takes any particular value is zero (in symbols, if P(X = x) = 0 for every real number x). A random variable is continuous if and only if its cumulative probability distribution function is a continuous function (a function with no jumps)."
+,,Contrapositive.
+,,"If p and q are two logical propositions, then the contrapositive of the proposition (p ? q) is the proposition ((! q) ? (!p) ). The contrapositive is logically equivalent to the original proposition."
+,,Control.
+,,"There are at least three senses of ""control"" in statistics: a member of the control group, to whom no treatment is given; a controlled experiment, and to control for a possible confounding variable."
+,,Controlled experiment.
+,,"An experiment that uses the method of comparison to evaluate the effect of a treatment by comparing treated subjects with a control group, who do not receive the treatment."
+,,"Controlled, randomized experiment."
+,,"A controlled experiment in which the assignment of subjects to the treatment group or control group is done at random, for example, by tossing a coin."
+,,Control for a variable.
+,,"To control for a variable is to try to separate its effect from the treatment effect, so it will not confound with the treatment. There are many methods that try to control for variables. Some are based on matching individuals between treatment and control; others use assumptions about the nature of the effects of the variables to try to model the effect mathematically, for example, using regression."
+,,Control group.
+,,The subjects in a controlled experiment who do not receive the treatment.
+,,Convenience Sample.
+,,"A sample drawn because of its convenience; it is not a probability sample. For example, I might take a sample of opinions in Berkeley (where I live) by just asking my 10 nearest neighbors. That would be a sample of convenience, and would be unlikely to be representative of all of Berkeley. Samples of convenience are not typically representative, and it is not possible to quantify how unrepresentative results based on samples of convenience are likely to be. Convenience samples are to be avoided, and results based on convenience samples are to be viewed with suspicion. See also quota sample."
+,,"Converge, convergence."
+,,"A sequence of numbers x1, x2, x3 … converges if there is a number x such that for any number E>0, there is a number k (which can depend on E) such that |xj ? x| < E whenever j > k. If such a number x exists, it is called the limit of the sequence x1, x2, x3 … ."
+,,Convergence in probability.
+,,"A sequence of random variables X1, X2, X3 … converges in probability if there is a random variable X such that for any number E>0, the sequence of numbers"
+
+,,"P(|X1 ? X| < e), P(|X2 ? X| < e), P(|X3 ? X| < e), …"
+
+,,converges to 100%.
+,,Converse.
+,,"If p and q are two logical propositions, then the converse of the proposition (p ? q) is the proposition (q ? p)."
+,,Correlation.
+,,"A measure of linear association between two (ordered) lists. Two variables can be strongly correlated without having any causal relationship, and two variables can have a causal relationship and yet be uncorrelated."
+,,Correlation coefficient.
+,,"The correlation coefficient r is a measure of how nearly a scatterplot falls on a straight line. The correlation coefficient is always between ?1 and +1. To compute the correlation coefficient of a list of pairs of measurements (X,Y), first transform X and Y individually into standard units. Multiply corresponding elements of the transformed pairs to get a single list of numbers. The correlation coefficient is the mean of that list of products. This page contains a tool that lets you generate bivariate data with any correlation coefficient you want."
+,,Counting.
+,,"To count a set of things is to put it in one to one correspondence with a consecutive subset of the positive integers, starting with 1."
+,,Countable Set.
+,,"A set is countable if its elements can be put in one-to-one correspondence with a subset of the integers. For example, the sets {0, 1, 7, ?3}, {red, green, blue}, {…,?2, ?1, 0, 1, 2, …}, {straight, curly}, and the set of all fractions, are countable. If a set is not countable, it is uncountable. The set of all real numbers is uncountable."
+,,Cover.
+,,"A confidence interval is said to cover if the interval contains the true value of the parameter. Before the data are collected, the chance that the confidence interval will contain the parameter value is the coverage probability, which equals the confidence level after the data are collected and the confidence interval is actually computed."
+,,Coverage probability.
+,,The coverage probability of a procedure for making confidence intervals is the chance that the procedure produces an interval that covers the truth.
+,,Critical value
+,,The critical value in an hypothesis test is the value of the test statistic beyond which we would reject the null hypothesis. The critical value is set so that the probability that the test statistic is beyond the critical value is at most equal to the significance level if the null hypothesis be true.
+,,Cross-sectional study.
+,,"A cross-sectional study compares different individuals to each other at the same time—it looks at a cross-section of a population. The differences between those individuals can confound with the effect being explored. For example, in trying to determine the effect of age on sexual promiscuity, a cross-sectional study would be likely to confound the effect of age with the effect of the mores the subjects were taught as children: the older individuals were probably raised with a very different attitude towards promiscuity than the younger subjects. Thus it would be imprudent to attribute differences in promiscuity to the aging process. C.f. longitudinal study."
+,,Cumulative Probability Distribution Function (cdf).
+,,"The cumulative distribution function of a random variable is the chance that the random variable is less than or equal to x, as a function of x. In symbols, if F is the cdf of the random variable X, then F(x) = P( X ? x). The cumulative distribution function must tend to zero as x approaches minus infinity, and must tend to unity as x approaches infinity. It is a positive function, and increases monotonically: if y > x, then F(y) ? F(x). The cumulative distribution function completely characterizes the probability distribution of a random variable."
+
+
+
+,,D
+,,de Morgan's Laws
+,,"de Morgan's Laws are identities involving logical operations: the negation of a conjunction is logically equivalent to the disjunction of the negations, and the negation of a disjunction is logically equivalent to the conjunction of the negations. In symbols, !(p & q) = !p | !q and !(p | q) = !p & !q."
+,,Deck of Cards.
+,,"A standard deck of playing cards contains 52 cards, 13 each of four suits: spades, hearts, diamonds, and clubs. The thirteen cards of each suit are {ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, jack, queen, king}. The face cards are {jack, queen, king}. It is typically assumed that if a deck of cards is shuffled well, it is equally likely to be in each possible ordering. There are 52! (52 factorial) possible orderings."
+,,"Dependent Events, Dependent Random Variables."
+,,Two events or random variables are dependent if they are not independent.
+,,Dependent Variable.
+,,"In regression, the variable whose values are supposed to be explained by changes in the other variable (the the independent or explanatory variable). Usually one regresses the dependent variable on the independent variable."
+,,"Density, Density Scale."
+,,"The vertical axis of a histogram has units of percent per unit of the horizontal axis. This is called a density scale; it measures how ""dense"" the observations are in each bin. See also probability density."
+,,Denying the antecedent.
+,,"A logical fallacy that argues from the premise A ? B and the premise !A that therefore, !B. The name comes from the fact that the operation denies (i.e., asserts the negation of) the antecedent (A) in the conditional."
+,,Denying the consequent.
+,,"A valid logical argument that concludes from the premise A ? B and the premise !B that therefore, !A. The name comes from the fact that the operation denies (i.e., asserts the logical negation) the consequent (B) in the conditional."
+,,Deviation.
+,,"A deviation is the difference between a datum and some reference value, typically the mean of the data. In computing the SD, one finds the rms of the deviations from the mean, the differences between the individual data and the mean of the data."
+,,Discrete Variable.
+,,"A quantitative variable whose set of possible values is countable. Typical examples of discrete variables are variables whose possible values are a subset of the integers, such as Social Security numbers, the number of people in a family, ages rounded to the nearest year, etc. Discrete variables are ""chunky."" C.f. continuous variable. A discrete random variable is one whose set of possible values is countable. A random variable is discrete if and only if its cumulative probability distribution function is a stair-step function; i.e., if it is piecewise constant and only increases by jumps."
+,,Disjoint or Mutually Exclusive Events.
+,,"Two events are disjoint or mutually exclusive if the occurrence of one is incompatible with the occurrence of the other; that is, if they can't both happen at once (if they have no outcome in common). Equivalently, two events are disjoint if their intersection is the empty set."
+,,Disjoint or Mutually Exclusive Sets.
+,,"Two sets are disjoint or mutually exclusive if they have no element in common. Equivalently, two sets are disjoint if their intersection is the empty set."
+,,Distribution.
+,,"The distribution of a set of numerical data is how their values are distributed over the real numbers. It is completely characterized by the empirical distribution function. Similarly, the probability distribution of a random variable is completely characterized by its probability distribution function. Sometimes the word ""distribution"" is used as a synonym for the empirical distribution function or the probability distribution function. If two or more random variables are defined for the same experiment, they have a joint probability distribution."
+,,"Distribution Function, Empirical."
+,,"The empirical (cumulative) distribution function of a set of numerical data is, for each real value of x, the fraction of observations that are less than or equal to x. A plot of the empirical distribution function is an uneven set of stairs. The width of the stairs is the spacing between adjacent data; the height of the stairs depends on how many data have exactly the same value. The distribution function is zero for small enough (negative) values of x, and is unity for large enough values of x. It increases monotonically: if y > x, the empirical distribution function evaluated at y is at least as large as the empirical distribution function evaluated at x."
+,,"Double-Blind, Double-Blind Experiment."
+,,"In a double-blind experiment, neither the subjects nor the people evaluating the subjects knows who is in the treatment group and who is in the control group. This mitigates the placebo effect and guards against conscious and unconscious prejudice for or against the treatment on the part of the evaluators."
+,,
+
+,,
+,,E
+
+,,Ecological Correlation.
+,,"The correlation between averages of groups of individuals, instead of individuals. Ecological correlation can be misleading about the association of individuals."
+,,Element of a Set.
+,,See member.
+,,Empirical Law of Averages.
+,,"The Empirical Law of Averages lies at the base of the frequency theory of probability. This law, which is, in fact, an assumption about how the world works, rather than a mathematical or physical law, states that if one repeats a random experiment over and over, independently and under ""identical"" conditions, the fraction of trials that result in a given outcome converges to a limit as the number of trials grows without bound."
+,,Empty Set.
+,,"The empty set, denoted {} or Ø, is the set that has no members."
+,,Endpoint Convention.
+,,"In plotting a histogram, one must decide whether to include a datum that lies at a class boundary with the class interval to the left or the right of the boundary. The rule for making this assignment is called an endpoint convention. The two standard endpoint conventions are (1) to include the left endpoint of all class intervals and exclude the right, except for the rightmost class interval, which includes both of its endpoints, and (2) to include the right endpoint of all class intervals and exclude the left, except for the leftmost interval, which includes both of its endpoints."
+,,Estimator.
+,,"An estimator is a rule for ""guessing"" the value of a population parameter based on a random sample from the population. An estimator is a random variable, because its value depends on which particular sample is obtained, which is random. A canonical example of an estimator is the sample mean, which is an estimator of the population mean."
+,,Event.
+,,"An event is a subset of outcome space. An event determined by a random variable is an event of the form A=(X is in A). When the random variable X is observed, that determines whether or not A occurs: if the value of X happens to be in A, A occurs; if not, A does not occur."
+,,Exhaustive.
+,,"A collection of events {A1, A2, A3, … } exhausts the set A if, for the event A to occur, at least one of those sets must also occur; that is, if"
+,,
+,,S ? A1 ? A2 ? A3 ? …
+,,
+,,"If the event A is not specified, it is assumed to be the entire outcome space S."
+
+,,"Expectation, Expected Value."
+,,"The expected value of a random variable is the long-term limiting average of its values in independent repeated experiments. The expected value of the random variable X is denoted EX or E(X). For a discrete random variable (one that has a countable number of possible values) the expected value is the weighted average of its possible values, where the weight assigned to each possible value is the chance that the random variable takes that value. One can think of the expected value of a random variable as the point at which its probability histogram would balance, if it were cut out of a uniform material. Taking the expected value is a linear operation: if X and Y are two random variables, the expected value of their sum is the sum of their expected values (E(X+Y) = E(X) + E(Y)), and the expected value of a constant a times a random variable X is the constant times the expected value of X (E(a×X ) = a× E(X))."
+,,Experiment.
+,,"What distinguishes an experiment from an observational study is that in an experiment, the experimenter decides who receives the treatment."
+,,Explanatory Variable.
+,,"In regression, the explanatory or independent variable is the one that is supposed to ""explain"" the other. For example, in examining crop yield versus quantity of fertilizer applied, the quantity of fertilizer would be the explanatory or independent variable, and the crop yield would be the dependent variable. In experiments, the explanatory variable is the one that is manipulated; the one that is observed is the dependent variable."
+,,Extrapolation.
+,,See interpolation.
+,,
+
+,,
+,,F
+
+,,Factorial.
+,,"For an integer k that is greater than or equal to 1, k! (pronounced ""k factorial"") is k×(k?1)×(k?2)× …×1. By convention, 0! = 1. There are k! ways of ordering k distinct objects. For example, 9! is the number of batting orders of 9 baseball players, and 52! is the number of different ways a standard deck of playing cards can be ordered. The calculator above has a button to compute the factorial of a number. To compute k!, first type the value of k, then press the button labeled ""!""."
+,,Fair Bet.
+,,"A fair bet is one for which the expected value of the payoff is zero, after accounting for the cost of the bet. For example, suppose I offer to pay you $2 if a fair coin lands heads, but you must ante up $1 to play. Your expected payoff is ?$1+ $0×P(tails) + $2×P(heads) = ?$1 + $2×50% = $0. This is a fair bet—in the long run, if you made this bet over and over again, you would expect to break even."
+,,False Discovery Rate.
+,,"In testing a collection of hypotheses, the false discovery rate is the fraction of rejected null hypotheses that are rejected erroneously (the number of Type I errors divided by the number of rejected null hypotheses), with the convention that if no hypothesis is rejected, the false discovery rate is zero."
+,,Finite Population Correction.
+,,"When sampling without replacement, as in a simple random sample, the SE of sample sums and sample means depends on the fraction of the population that is in the sample: the greater the fraction, the smaller the SE. Sampling with replacement is like sampling from an infinitely large population. The adjustment to the SE for sampling without replacement is called the finite population correction. The SE for sampling without replacement is smaller than the SE for sampling with replacement by the finite population correction factor ((N ?n)/(N ? 1))½. Note that for sample size n=1, there is no difference between sampling with and without replacement; the finite population correction is then unity. If the sample size is the entire population of N units, there is no variability in the result of sampling without replacement (every member of the population is in the sample exactly once), and the SE should be zero. This is indeed what the finite population correction gives (the numerator vanishes)."
+,,Fisher's exact test (for the equality of two percentages)
+,,"Consider two populations of zeros and ones. Let p1 be the proportion of ones in the first population, and let p2 be the proportion of ones in the second population. We would like to test the null hypothesis that p1 = p2 on the basis of a simple random sample from each population. Let n1 be the size of the sample from population 1, and let n2 be the size of the sample from population 2. Let G be the total number of ones in both samples. If the null hypothesis be true, the two samples are like one larger sample from a single population of zeros and ones. The allocation of ones between the two samples would be expected to be proportional to the relative sizes of the samples, but would have some chance variability. Conditional on G and the two sample sizes, under the null hypothesis, the tickets in the first sample are like a random sample of size n1 without replacement from a collection of N = n1 + n2 units of which G are labeled with ones. Thus, under the null hypothesis, the number of tickets labeled with ones in the first sample has (conditional on G) an hypergeometric distribution with parameters N, G, and n1. Fisher's exact test uses this distribution to set the ranges of observed values of the number of ones in the first sample for which we would reject the null hypothesis."
+,,Football-Shaped Scatterplot.
+,,"In a football-shaped scatterplot, most of the points lie within a tilted oval, shaped more-or-less like a football. A football-shaped scatterplot is one in which the data are homoscedastically scattered about a straight line."
+,,"Frame, sampling frame."
+,,"A sampling frame is a collection of units from which a sample will be drawn. Ideally, the frame is identical to the population we want to learn about; more typically, the frame is only a subset of the population of interest. The difference between the frame and the population can be a source of bias in sampling design, if the parameter of interest has a different value for the frame than it does for the population. For example, one might desire to estimate the current annual average income of 1998 graduates of the University of California at Berkeley. I propose to use the sample mean income of a sample of graduates drawn at random. To facilitate taking the sample and contacting the graduates to obtain income information from them, I might draw names at random from the list of 1998 graduates for whom the alumni association has an accurate current address. The population is the collection of 1998 graduates; the frame is those graduates who have current addresses on file with the alumni association. If there is a tendency for graduates with higher incomes to have up-to-date addresses on file with the alumni association, that would introduce a positive bias into the annual average income estimated from the sample by the sample mean."
+,,FPP.
+,,"Statistics, third edition, by Freedman, Pisani, and Purves, published by W.W. Norton, 1997."
+,,Frequency theory of probability.
+,,"See Probability, Theories of."
+,,Frequency table.
+,,"A table listing the frequency (number) or relative frequency (fraction or percentage) of observations in different ranges, called class intervals."
+,,Fundamental Rule of Counting.
+,,"If a sequence of experiments or trials T1, T2, T3, …, Tk could result, respectively, in n1, n2 n3, …, nk possible outcomes, and the numbers n1, n2 n3, …, nk do not depend on which outcomes actually occurred, the entire sequence of k experiments has n1× n2 × n3× …× nk possible outcomes."
+,,
+
+,,
+,,G
+
+,,Game Theory.
+,,"A field of study that bridges mathematics, statistics, economics, and psychology. It is used to study economic behavior, and to model conflict between nations, for example, ""nuclear stalemate"" during the Cold War."
+,,Geometric Distribution.
+,,"The geometric distribution describes the number of trials up to and including the first success, in independent trials with the same probability of success. The geometric distribution depends only on the single parameter p, the probability of success in each trial. For example, the number of times one must toss a fair coin until the first time the coin lands heads has a geometric distribution with parameter p = 50%. The geometric distribution assigns probability p×(1 ? p)k?1to the event that it takes k trials to the first success. The expected value of the geometric distribution is 1/p, and its SE is (1?p)½/p."
+,,Geometric Mean.
+,,"The geometric mean of n numbers {x1, x2, x3, …, xn} is the nth root of their product:"
+,,
+,,(x1×x2×x3× … ×xn)1/n.
+
+,,Graph of Averages.
+,,"For bivariate data, a graph of averages is a plot of the average values of one variable (say y) for small ranges of values of the other variable (say x), against the value of the second variable (x) at the midpoints of the ranges."
+
+,,
+,,H
+
+,,Heteroscedasticity.
+,,"""Mixed scatter."" A scatterplot or residual plot shows heteroscedasticity if the scatter in vertical slices through the plot depends on where you take the slice. Linear regression is not usually a good idea if the data are heteroscedastic."
+,,Histogram.
+,,"A histogram is a kind of plot that summarizes how data are distributed. Starting with a set of class intervals, the histogram is a set of rectangles (""bins"") sitting on the horizontal axis. The bases of the rectangles are the class intervals, and their heights are such that their areas are proportional to the fraction of observations in the corresponding class intervals. That is, the height of a given rectangle is the fraction of observations in the corresponding class interval, divided by the length of the corresponding class interval. A histogram does not need a vertical scale, because the total area of the histogram must equal 100%. The units of the vertical axis are percent per unit of the horizontal axis. This is called the density scale. The horizontal axis of a histogram needs a scale. If any observations coincide with the endpoints of class intervals, the endpoint convention is important. This page contains a histogram tool, with controls to highlight ranges of values and read their areas."
+,,Historical Controls.
+,,"Sometimes, the a treatment group is compared with individuals from another epoch who did not receive the treatment; for example, in studying the possible effect of fluoridated water on childhood cancer, we might compare cancer rates in a community before and after fluorine was added to the water supply. Those individuals who were children before fluoridation started would comprise an historical control group. Experiments and studies with historical controls tend to be more susceptible to confounding than those with contemporary controls, because many factors that might affect the outcome other than the treatment tend to change over time as well. (In this example, the level of other potential carcinogens in the environment also could have changed.)"
+,,Homoscedasticity.
+,,"""Same scatter."" A scatterplot or residual plot shows homoscedasticity if the scatter in vertical slices through the plot does not depend much on where you take the slice. C.f. heteroscedasticity."
+,,House Edge.
+,,"In casino games, the expected payoff to the bettor is negative: the house (casino) tends to win money in the long run. The amount of money the house would expect to win for each $1 wagered on a particular bet (such as a bet on ""red"" in roulette) is called the house edge for that bet."
+,,HTLWS.
+,,The book How to lie with Statistics by D. Huff.
+,,Hypergeometric Distribution.
+,,"The hypergeometric distribution with parameters N, G and n is the distribution of the number of ""good"" objects in a simple random sample of size n (i.e., a random sample without replacement in which every subset of size n has the same chance of occurring) from a population of N objects of which G are ""good."" The chance of getting exactly g good objects in such a sample is"
+
+,,"GCg × N?GCn?g/NCn,"
+
+,,"provided g ? n, g ? G, and n ? g ? N ? G. (The probability is zero otherwise.) The expected value of the hypergeometric distribution is n×G/N, and its standard error is"
+
+,,((N?n)/(N?1))½ × (n × G/N × (1?G/N) )½.
+
+,,Hypothesis testing.
+,,"Statistical hypothesis testing is formalized as making a decision between rejecting or not rejecting a null hypothesis, on the basis of a set of observations. Two types of errors can result from any decision rule (test): rejecting the null hypothesis when it is true (a Type I error), and failing to reject the null hypothesis when it is false (a Type II error). For any hypothesis, it is possible to develop many different decision rules (tests). Typically, one specifies ahead of time the chance of a Type I error one is willing to allow. That chance is called the significance level of the test or decision rule. For a given significance level, one way of deciding which decision rule is best is to pick the one that has the smallest chance of a Type II error when a given alternative hypothesis is true. The chance of correctly rejecting the null hypothesis when a given alternative hypothesis is true is called the power of the test against that alternative."
+,,
+
+,,
+,,I
+
+,,"iff, if and only if, ?"
+,,"If p and q are two logical propositions, then(p ? q) is a proposition that is true when both p and q are true, and when both p and q are false. It is logically equivalent to the proposition"
+,,
+,,( (p ? q) & (q ? p) )
+
+,,and to the proposition
+,,
+,,( (p & q) | ((! p) & (!q)) ).
+
+,,"Implies, logical implication, ? , conditional, if-then"
+,,"Logical implication is an operation on two logical propositions. If p and q are two logical propositions, (p ? q), pronounced ""p implies q"" or ""if p then q"" is a logical proposition that is true if p is false, or if both p and q are true. The proposition (p ? q) is logically equivalent to the proposition ((!p) | q). In the conditional p ? q, the antecedent is p and the consequent is q. "
+,,"Independent, independence."
+,,"Two events A and B are (statistically) independent if the chance that they both happen simultaneously is the product of the chances that each occurs individually; i.e., if P(AB) = P(A)P(B). This is essentially equivalent to saying that learning that one event occurs does not give any information about whether the other event occurred too: the conditional probability of A given B is the same as the unconditional probability of A, i.e., P(A|B) = P(A). Two random variables X and Y are independent if all events they determine are independent, for example, if the event {a < X ? b} is independent of the event {c < Y ? d} for all choices of a, b, c, and d. A collection of more than two random variables is independent if for every proper subset of the variables, every event determined by that subset of the variables is independent of every event determined by the variables in the complement of the subset. For example, the three random variables X, Y, and Z are independent if every event determined by X is independent of every event determined by Y and every event determined by X is independent of every event determined by Y and Z and every event determined by Y is independent of every event determined by X and Z and every event determined by Z is independent of every event determined by X and Y."
+,,Independent and identically distributed (iid).
+,,"A collection of two or more random variables {X1, X2, … , } is independent and identically distributed if the variables have the same probability distribution, and are independent."
+,,Independent Variable.
+,,"In regression, the independent variable is the one that is supposed to explain the other; the term is a synonym for ""explanatory variable."" Usually, one regresses the ""dependent variable"" on the ""independent variable."" There is not always a clear choice of the independent variable. The independent variable is usually plotted on the horizontal axis. Independent in this context does not mean the same thing as statistically independent."
+,,Indicator Random Variable.
+,,"The indicator [random variable] of the event A, often written 1A, is the random variable that equals unity if A occurs, and zero if A does not occur. The expected value of the indicator of A is the probability of A, P(A), and the standard error of the indicator of A is (P(A)×(1?P(A))½. The sum"
+,,
+,,1A + 1B + 1C + …
+
+,,"of the indicators of a collection of events {A, B, C, …} counts how many of the events {A, B, C, …} occur in a given trial. The product of the indicators of a collection of events is the indicator of the intersection of the events (the product equals one if and only if all of indicators equal one). The maximum of the indicators of a collection of events is the indicator of the union of the events (the maximum equals one if any of the indicators equals one)."
+,,Inter-quartile Range (IQR).
+,,The inter-quartile range of a list of numbers is the upper quartile minus the lower quartile.
+,,Interpolation.
+,,"Given a set of bivariate data (x, y), to impute a value of y corresponding to some value of x at which there is no measurement of y is called interpolation, if the value of x is within the range of the measured values of x. If the value of x is outside the range of measured values, imputing a corresponding value of y is called extrapolation."
+,,Intersection.
+,,"The intersection of two or more sets is the set of elements that all the sets have in common; the elements contained in every one of the sets. The intersection of the events A and B is written ""A?B,"" ""A and B,"" and ""AB."" C.f. union. See also Venn diagrams."
+,,Invalid (logical) argument.
+,,"An invalid logical argument is one in which the truth of the premises does not guarantee the truth of the conclusion. For example, the following logical argument is invalid: If the forecast calls for rain, I will not wear sandals. The forecast does not call for rain. Therefore, I will wear sandals. See also valid argument."
+,,
+
+,,
+,,J
+
+,,Joint Probability Distribution.
+,,"If X1, X2, … , Xk are random variables defined for the same experiment, their joint probability distribution gives the probability of events determined by the collection of random variables: for any collection of sets of numbers {A1, … , Ak}, the joint probability distribution determines"
+,,
+,,P( (X1 is in A1) and (X2 is in A2) and … and (Xk is in Ak) ).
+,,
+,,"For example, suppose we roll two fair dice independently. Let X1 be the number of spots that show on the first die, and let X2 be the total number of spots that show on both dice. Then the joint distribution of X1 and X2 is as follows:"
+,,
+,,"P(X1 = 1, X2 = 2) = P(X1 = 1, X2 = 3) = P(X1 = 1, X2 = 4) = P(X1 = 1, X2 = 5) = P(X1 = 1, X2 = 6) = P(X1 = 1, X2 = 7) ="
+,,
+,,"P(X1 = 2, X2 = 3) = P(X1 = 2, X2 = 4) = P(X1 = 2, X2 = 5) = P(X1 = 2, X2 = 6) = P(X1 = 2, X2 = 7) = P(X1 = 2, X2 = 8) = …"
+,,
+,,"… P(X1 = 6, X2 = 7) = P(X1 = 6, X2 = 8) = P(X1 = 6, X2 = 9) = P(X1 = 6, X2 = 10) = P(X1 = 6, X2 = 11) = P(X1 = 6, X2 = 12) = 1/36."
+,,
+,,"If a collection of random variables is independent, their joint probability distribution is the product of their marginal probability distributions, their individual probability distributions without regard for the value of the other variables. In this example, the marginal probability distribution of X1 is"
+,,
+,,"P(X1 = 1) = P(X1 = 2) = P(X1 = 3) = P(X1 = 4) = P(X1 = 5) = P(X1 = 6) = 1/6,"
+,,
+,,and the marginal probability distribution of X2 is
+,,
+,,P(X2 = 2) = P(X2 = 12) = 1/36
+,,
+,,P(X2 = 3) = P(X2 = 11) = 1/18
+,,
+,,P(X2 = 4) = P(X2 = 10) = 3/36
+,,
+,,P(X2 = 5) = P(X2 = 9) = 1/9
+,,
+,,P(X2 = 6) = P(X2 = 8) = 5/36
+,,
+,,P(X2 = 7) = 1/6.
+,,
+,,"Note that P(X1 = 1, X2 = 10) = 0, while P(X1 = 1)×P(X2 = 10) = (1/6)(3/36) = 1/72. The joint probability is not equal to the product of the marginal probabilities: X1 and X2 are dependent random variables."
+
+
+,,K
+
+
+
+,,L
+
+,,Law of Averages.
+,,"The Law of Averages says that the average of independent observations of random variables that have the same probability distribution is increasingly likely to be close to the expected value of the random variables as the number of observations grows. More precisely, if X1, X2, X3, …, are independent random variables with the same probability distribution, and E(X) is their common expected value, then for every number ? > 0,"
+,,
+,,P{|(X1 + X2 + … + Xn)/n ? E(X) | < ?}
+
+,,converges to 100% as n grows. This is equivalent to saying that the sequence of sample means
+,,
+,,"X1, (X1+X2)/2, (X1+X2+X3)/3, …"
+
+,,converges in probability to E(X).
+,,Law of Large Numbers.
+,,"The Law of Large Numbers says that in repeated, independent trials with the same probability p of success in each trial, the percentage of successes is increasingly likely to be close to the chance of success as the number of trials increases. More precisely, the chance that the percentage of successes differs from the probability p by more than a fixed positive amount, e > 0, converges to zero as the number of trials n goes to infinity, for every number e > 0. Note that in contrast to the difference between the percentage of successes and the probability of success, the difference between the number of successes and the expected number of successes, n×p, tends to grow as n grows. The following tool illustrates the law of large numbers; the button toggles between displaying the difference between the number of successes and the expected number of successes, and the difference between the percentage of successes and the expected percentage of successes. The tool on this page illustrates the law of large numbers."
+,,Limit.
+,,See converge.
+,,Linear Operation.
+,,"Suppose f is a function or operation that acts on things we shall denote generically by the lower-case Roman letters x and y. Suppose it makes sense to multiply x and y by numbers (which we denote by a), and that it makes sense to add things like x and y together. We say that f is linear if for every number a and every value of x and y for which f(x) and f(y) are defined, (i) f( a×x ) is defined and equals a×f(x), and (ii) f( x + y ) is defined and equals f(x) + f(y). C.f. affine."
+,,Linear association.
+,,"Two variables are linearly associated if a change in one is associated with a proportional change in the other, with the same constant of proportionality throughout the range of measurement. The correlation coefficient measures the degree of linear association on a scale of ?1 to 1."
+,,"Location, Measure of."
+,,"A measure of location is a way of summarizing what a ""typical"" element of a list is—it is a one-number summary of a distribution. See also arithmetic mean, median, and mode."
+,,Logical argument.
+,,"A logical argument consists of one or more premises, propositions that are assumed to be true, and a conclusion, a proposition that is supposed to be guaranteed to be true (as a matter of pure logic) if the premises are true. For example, the following is a logical argument:"
+,,
+,,p ? q
+,,p
+,,"Therefore, q."
+,,
+,,"This argument has two premises: p ? q, and p. The conclusion of the argument is q. If a logical argument is valid if the truth of the premises guarantees the truth of the conclusion; otherwise, the argument is invalid. That is, an argument with premises p1, p1, … pn and conclusion q is valid if the compound proposition"
+,,
+,,(p1 & p2 & … & pn) ? q
+,,
+,,"is logically equivalent to TRUE. The argument given above is valid because if it is true that p ? q and that p is true (the two premises), then q (the conclusion of the argument) must also be true."
+,,"Logically equivalent, logical equivalence."
+,,"Two propositions are logically equivalent if they always have the same truth value. That is, the propositions p and q are logically equivalent if p is true whenever q is true and p is false whenever q is false. The proposition (p ? q) is always true if and only if p and q are logically equivalent. For example, p is logically equivalent to p, to (p & p), and to (p | p); (p | (!p)) is logically equivalent to TRUE; (p & !p) is logically equivalent to FALSE; (p ? p) is logically equivalent to TRUE; and (p ? q) is logically equivalent to (!p | q)."
+,,Longitudinal study.
+,,"A study in which individuals are followed over time, and compared with themselves at different times, to determine, for example, the effect of aging on some measured variable. Longitudinal studies provide much more persuasive evidence about the effect of aging than do cross-sectional studies."
+,,Lower Quartile (LQ).
+,,See quartiles.
+
+,,
+,,M
+
+,,Margin of error.
+,,"A measure of the uncertainty in an estimate of a parameter; unfortunately, not everyone agrees what it should mean. The margin of error of an estimate is typically one or two times the estimated standard error of the estimate."
+,,Marginal probability distribution.
+,,"The marginal probability distribution of a random variable that has a joint probability distribution with some other random variables is the probability distribution of that random variable without regard for the values that the other random variables take. The marginal distribution of a discrete random variable X1 that has a joint distribution with other discrete random variables can be found from the joint distribution by summing over all possible values of the other variables. For example, suppose we roll two fair dice independently. Let X1 be the number of spots that show on the first die, and let X2 be the total number of spots that show on both dice. Then the joint distribution of X1 and X2 is as follows:"
+,,
+,,"P(X1 = 1, X2 = 2) = P(X1 = 1, X2 = 3) = P(X1 = 1, X2 = 4) = P(X1 = 1, X2 = 5) = P(X1 = 1, X2 = 6) = P(X1 = 1, X2 = 7) ="
+,,
+,,"P(X1 = 2, X2 = 3) = P(X1 = 2, X2 = 4) = P(X1 = 2, X2 = 5) = P(X1 = 2, X2 = 6) = P(X1 = 2, X2 = 7) = P(X1 = 2, X2 = 8) = …"
+,,
+,,"… P(X1 = 6, X2 = 7) = P(X1 = 6, X2 = 8) = P(X1 = 6, X2 = 9) = P(X1 = 6, X2 = 10) = P(X1 = 6, X2 = 11) = P(X1 = 6, X2 = 12) = 1/36."
+,,
+,,The marginal probability distribution of X1 is
+,,
+,,P(X1 = 1) = P(X1 = 2) = P(X1 = 3) = P(X1 = 4) = P(X1 = 5) = P(X1 = 6) = 1/6.
+,,
+,,We can verify that the marginal probability that X1 = 1 is indeed the sum of the joint probability distribution over all possible values of X2 for which X1 = 1:
+,,
+,,"P(X1 = 1) = P(X1 = 1, X2 = 2) + P(X1 = 1, X2 = 3) + P(X1 = 1, X2 = 4) + P(X1 = 1, X2 = 5) + P(X1 = 1, X2 = 6) + P(X1 = 1, X2 = 7) = 6/36 = 1/6."
+,,
+,,"Similarly, the marginal probability distribution of X2 is"
+,,
+,,P(X2 = 2) = P(X2 = 12) = 1/36
+,,
+,,P(X2 = 3) = P(X2 = 11) = 1/18
+,,
+,,P(X2 = 4) = P(X2 = 10) = 3/36
+,,
+,,P(X2 = 5) = P(X2 = 9) = 1/9
+,,
+,,P(X2 = 6) = P(X2 = 8) = 5/36
+,,
+,,P(X2 = 7) = 1/6.
+,,
+,,"Again, we can verify that the marginal probability that X2 = 4 is 3/36 by adding the joint probabilities for all possible values of X1 for which X2 = 4:"
+,,
+,,"P(X2 = 4) = P(X1 = 1, X2 = 4) + P(X1 = 2, X2 = 4) + P(X1 = 3, X2 = 4) = 3/36."
+
+,,Markov's Inequality.
+,,"For lists: If a list contains no negative numbers, the fraction of numbers in the list at least as large as any given constant a>0 is no larger than the arithmetic mean of the list, divided by a."
+,,"For random variables: if a random variable X must be nonnegative, the chance that X exceeds any given constant a>0 is no larger than the expected value of X, divided by a."
+,,Maximum Likelihood Estimate (MLE).
+,,"The maximum likelihood estimate of a parameter from data is the possible value of the parameter for which the chance of observing the data largest. That is, suppose that the parameter is p, and that we observe data x. Then the maximum likelihood estimate of p is"
+,,
+,,estimate p by the value q that makes P(observing x when the value of p is q) as large as possible.
+
+,,"For example, suppose we are trying to estimate the chance that a (possibly biased) coin lands heads when it is tossed. Our data will be the number of times x the coin lands heads in n independent tosses of the coin. The distribution of the number of times the coin lands heads is binomial with parameters n (known) and p (unknown). The chance of observing x heads in n trials if the chance of heads in a given trial is q is nCx qx(1?q)n?x. The maximum likelihood estimate of p would be the value of q that makes that chance largest. We can find that value of q explicitly using calculus; it turns out to be q = x/n, the fraction of times the coin is observed to land heads in the n tosses. Thus the maximum likelihood estimate of the chance of heads from the number of heads in n independent tosses of the coin is the observed fraction of tosses in which the coin lands heads."
+,,"Mean, Arithmetic mean."
+,,"The sum of a list of numbers, divided by the number of numbers. See also average."
+,,Mean Squared Error (MSE).
+,,"The mean squared error of an estimator of a parameter is the expected value of the square of the difference between the estimator and the parameter. In symbols, if X is an estimator of the parameter t, then"
+
+,,MSE(X) = E( (X?t)2 ).
+
+,,"The MSE measures how far the estimator is off from what it is trying to estimate, on the average in repeated experiments. It is a summary measure of the accuracy of the estimator. It combines any tendency of the estimator to overshoot or undershoot the truth (bias), and the variability of the estimator (SE). The MSE can be written in terms of the bias and SE of the estimator:"
+,,
+,,MSE(X) = (bias(X))2 + (SE(X))2.
+
+,,Median.
+,,"""Middle value"" of a list. The smallest number such that at least half the numbers in the list are no greater than it. If the list has an odd number of entries, the median is the middle entry in the list after sorting the list into increasing order. If the list has an even number of entries, the median is the smaller of the two middle numbers after sorting. The median can be estimated from a histogram by finding the smallest number such that the area under the histogram to the left of that number is 50%."
+,,Member of a set.
+,,Something is a member (or element) of a set if it is one of the things in the set.
+,,Method of Comparison.
+,,The most basic and important method of determining whether a treatment has an effect: compare what happens to individuals who are treated (the treatment group) with what happens to individuals who are not treated (the control group).
+,,Minimax Strategy.
+,,"In game theory, a minimax strategy is one that minimizes one's maximum loss, whatever the opponent might do (whatever strategy the opponent might choose)."
+,,Mode.
+,,"For lists, the mode is a most common (frequent) value. A list can have more than one mode. For histograms, a mode is a relative maximum (""bump"")."
+,,Moment.
+,,"The kth moment of a list is the average value of the elements raised to the kth power; that is, if the list consists of the N elements x1, x2, … , xN, the kth moment of the list is"
+,,
+,,( x1k + x2k + xNk )/N.
+
+,,"The kth moment of a random variable X is the expected value of Xk, E(Xk)."
+,,"Monotone, monotonic function."
+,,"A function is monotone if it only increases or only decreases: f increases monotonically (is monotonic increasing) if x > y, implies thatf(x) ? f(y). A function f decreases monotonically (is monotonic decreasing) if x > y, implies thatf(x) ? f(y). A function f is strictly monotonically increasing if x > y, implies thatf(x) > f(y), and strictly monotonically decreasing if if x > y, implies thatf(x) < f(y)."
+,,Multimodal Distribution.
+,,"A distribution with more than one mode. The histogram of a multimodal distribution has more than one ""bump."""
+,,Multinomial Distribution
+,,"Consider a sequence of n independent trials, each of which can result in an outcome in any of k categories. Let pj be the probability that each trial results in an outcome in category j, j = 1, 2, … , k, so"
+,,
+,,p1 + p2 + … + pk = 100%.
+
+,,"The number of outcomes of each type has a multinomial distribution. In particular, the probability that the n trials result in n1 outcomes of type 1, n2 outcomes of type 2, … , and nk outcomes of type k is"
+,,
+,,"n!/(n1! × n2! × … × nk!) × p1n1 × p2n2 × … × pknk,"
+
+,,"if n1, … , nk are nonnegative integers that sum to n; the chance is zero otherwise."
+,,Multiplication rule.
+,,"The chance that events A and B both occur (i.e., that event AB occurs), is the conditional probability that A occurs given that B occurs, times the unconditional probability that B occurs."
+,,Multiplicity in hypothesis tests.
+,,"In hypothesis testing, if more than one hypothesis is tested, the actual significance level of the combined tests is not equal to the nominal significance level of the individual tests. See also false discovery rate."
+,,Multivariate Data.
+,,A set of measurements of two or more variables per individual. See bivariate.
+,,Mutually Exclusive.
+,,See disjoint events or disjoint sets.
+,,
+
+,,
+,,N
+
+,,Nearly normal distribution.
+,,"A population of numbers (a list of numbers) is said to have a nearly normal distribution if the histogram of its values in standard units nearly follows a normal curve. More precisely, suppose that the mean of the list is ? and the standard deviation of the list is SD. Then the list is nearly normally distributed if, for every two numbers a < b, the fraction of numbers in the list that are between a and b is approximately equal to the area under the normal curve between (a ? ?)/SD and (a ? ?)/SD."
+,,Negative Binomial Distribution.
+,,"Consider a sequence of independent trials with the same probability p of success in each trial. The number of trials up to and including the rth success has the negative Binomial distribution with parameters n and r. If the random variable N has the negative binomial distribution with parameters n and r, then"
+
+,,"P(N=k) = k?1Cr?1 × pr × (1?p)k?r,"
+
+,,"for k = r, r+1, r+2, …, and zero for k < r, because there must be at least r trials to have r successes. The negative binomial distribution is derived as follows: for the rth success to occur on the kth trial, there must have been r?1 successes in the first k?1 trials, and the kth trial must result in success. The chance of the former is the chance of r?1 successes in k?1 independent trials with the same probability of success in each trial, which, according to the Binomial distribution with parameters n=k?1 and p, has probability"
+
+,,k?1Cr?1 × pr?1 × (1?p)k?r.
+
+,,"The chance of the latter event is p, by assumption. Because the trials are independent, we can find the chance that both events occur by multiplying their chances together, which gives the expression for P(N=k) above."
+,,No causation without manipulation.
+,,"A slogan attributed to Paul Holland. If the conditions were not deliberately manipulated (for example, if the situation is an observational study rather than an experiment), it is unwise to conclude that there is any causal relationship between the outcome and the conditions. See post hoc ergo propter hoc and cum hoc ergo propter hoc."
+,,Nonlinear Association.
+,,"The relationship between two variables is nonlinear if a change in one is associated with a change in the other that is depends on the value of the first; that is, if the change in the second is not simply proportional to the change in the first, independent of the value of the first variable."
+,,Nonresponse.
+,,"In surveys, it is rare that everyone who is ``invited'' to participate (everyone whose phone number is called, everyone who is mailed a questionnaire, everyone an interviewer tries to stop on the street…) in fact responds. The difference between the ""invited"" sample sought, and that obtained, is the nonresponse."
+,,Nonresponse bias.
+,,"In a survey, those who respond may differ from those who do not, in ways that are related to the effect one is trying to measure. For example, a telephone survey of how many hours people work is likely to miss people who are working late, and are therefore not at home to answer the phone. When that happens, the survey may suffer from nonresponse bias. Nonresponse bias makes the result of a survey differ systematically from the truth."
+,,Nonresponse rate.
+,,"The fraction of nonresponders in a survey: the number of nonresponders divided by the number of people invited to participate (the number sent questionnaires, the number of interview attempts, etc.) If the nonresponse rate is appreciable, the survey suffer from large nonresponse bias."
+,,Normal approximation.
+,,"The normal approximation to data is to approximate areas under the histogram of data, transformed into standard units, by the corresponding areas under the normal curve."
+,,"Many probability distributions can be approximated by a normal distribution, in the sense that the area under the probability histogram is close to the area under a corresponding part of the normal curve. To find the corresponding part of the normal curve, the range must be converted to standard units, by subtracting the expected value and dividing by the standard error. For example, the area under the binomial probability histogram for n = 50 and p = 30% between 9.5 and 17.5 is 74.2%. To use the normal approximation, we transform the endpoints to standard units, by subtracting the expected value (for the Binomial random variable, n×p = 15 for these values of n and p) and dividing the result by the standard error (for a Binomial, (n × p × (1?p))1/2 = 3.24 for these values of n and p). The area normal approximation is the area under the normal curve between (9.5 ? 15)/3.24 = ?1.697 and (17.5 ? 15)/3.24 = 0.772; that area is 73.5%, slightly smaller than the corresponding area under the binomial histogram. See also the continuity correction. The tool on this page illustrates the normal approximation to the binomial probability histogram. Note that the approximation gets worse when p gets close to 0 or 1, and that the approximation improves as n increases."
+,,Normal curve.
+,,"The normal curve is the familiar ""bell curve:,"" illustrated on this page. The mathematical expression for the normal curve is y = (2×pi)?½e?x2/2, where pi is the ratio of the circumference of a circle to its diameter (3.14159265…), and e is the base of the natural logarithm (2.71828…). The normal curve is symmetric around the point x=0, and positive for every value of x. The area under the normal curve is unity, and the SD of the normal curve, suitably defined, is also unity. Many (but not most) histograms, converted into standard units, approximately follow the normal curve."
+,,Normal distribution.
+,,"A random variable X has a normal distribution with mean m and standard error s if for every pair of numbers a ? b, the chance that a < (X?m)/s < b is"
+,,
+,,P(a < (X?m)/s < b) = area under the normal curve between a and b.
+,,
+,,"If there are numbers m and s such that X has a normal distribution with mean m and standard error s, then X is said to have a normal distribution or to be normally distributed. If X has a normal distribution with mean m=0 and standard error s=1, then X is said to have a standard normal distribution. The notation X~N(m,s2) means that X has a normal distribution with mean m and standard error s; for example, X~N(0,1), means X has a standard normal distribution."
+,,"NOT, !, Negation, Logical Negation.",,,,
+,,"The negation of a logical proposition p, !p, is a proposition that is the logical opposite of p. That is, if p is true, !p is false, and if p is false, !p is true. Negation takes precedence over other logical operations. Other common symbols for the negation operator include ¬, ? and ˜.",,,,
+,,Null hypothesis.,,,,
+,,"In hypothesis testing, the hypothesis we wish to falsify on the basis of the data. The null hypothesis is typically that something is not present, that there is no effect, or that there is no difference between treatment and control.",,,,
+,,,,,,
+
+,,,,,,
+,,O,,,,
+
+,,Observational Study.,,,,
+,,C.f. controlled experiment.,,,,
+,,Odds.,,,,
+,,"The odds in favor of an event is the ratio of the probability that the event occurs to the probability that the event does not occur. For example, suppose an experiment can result in any of n possible outcomes, all equally likely, and that k of the outcomes result in a ""win"" and n?k result in a ""loss."" Then the chance of winning is k/n; the chance of not winning is (n?k)/n; and the odds in favor of winning are (k/n)/((n?k)/n) = k/(n?k), which is the number of favorable outcomes divided by the number of unfavorable outcomes. Note that odds are not synonymous with probability, but the two can be converted back and forth. If the odds in favor of an event are q, then the probability of the event is q/(1+q). If the probability of an event is p, the odds in favor of the event are p/(1?p) and the odds against the event are (1?p)/p.",,,,
+,,One-sided Test.,,,,
+,,"C.f. two-sided test. An hypothesis test of the null hypothesis that the value of a parameter, ?, is equal to a null value, ?0, designed to have power against either the alternative hypothesis that ? < ?0 or the alternative ? > ?0 (but not both). For example, a significance level 5%, one-sided z test of the null hypothesis that the mean of a population equals zero against the alternative that it is greater than zero, would reject the null hypothesis for values of",,,,
+,,,,sample mean,,
+,,z,=,-------------------,>,1.64.
+,,,,SE(sample mean),,
+,,"or, |, Disjunction, Logical Disjunction, ?",,,,
+,,"An operation on two logical propositions. If p and q are two propositions, (p | q) is a proposition that is true if p is true or if q is true (or both); otherwise, it is false. That is, (p | q) is true unless both p and q are false. The operation | is sometimes represented by the symbol ? and sometimes by the word or. C.f. exclusive disjunction, XOR.",,,,
+,,Ordinal Variable.,,,,
+,,"A variable whose possible values have a natural order, such as {short, medium, long}, {cold, warm, hot}, or {0, 1, 2, 3, …}. In contrast, a variable whose possible values are {straight, curly} or {Arizona, California, Montana, New York} would not naturally be ordinal. Arithmetic with the possible values of an ordinal variable does not necessarily make sense, but it does make sense to say that one possible value is larger than another.",,,,
+,,Outcome Space.,,,,
+,,The outcome space is the set of all possible outcomes of a given random experiment. The outcome space is often denoted by the capital letter S.,,,,
+,,Outlier.,,,,
+,,"An outlier is an observation that is many SD's from the mean. It is sometimes tempting to discard outliers, but this is imprudent unless the cause of the outlier can be identified, and the outlier is determined to be spurious. Otherwise, discarding outliers can cause one to underestimate the true variability of the measurement process.",,,,
+,,,,,,
+
+,,,,,,
+,,P,,,,
+
+,,P-value.,,,,
+,,Suppose we have a family of hypothesis tests of a null hypothesis that let us test the hypothesis at any significance level p between 0 and 100% we choose. The P value of the null hypothesis given the data is the smallest significance level p for which any of the tests would have rejected the null hypothesis.
+,,"For example, let X be a test statistic, and for p between 0 and 100%, let xp be the smallest number such that, under the null hypothesis,"
+,,
+,,P( X ? x ) ? p.
+
+,,"Then for any p between 0 and 100%, the rule"
+,,
+,,reject the null hypothesis if X < xp
+
+,,"tests the null hypothesis at significance level p. If we observed X = x, the P-value of the null hypothesis given the data would be the smallest p such that x < xp."
+,,Parameter.
+,,"A numerical property of a population, such as its mean."
+,,Partition.
+,,"A partition of an event A is a collection of events {A1, A2, A3, … } such that the events in the collection are disjoint, and their union is A. That is,"
+
+,,"AjAk = {} unless j = k, and"
+
+,,A = A1 ? A2 ? A3 ? … .
+
+,,"If the event A is not specified, it is assumed to be the entire outcome space S."
+,,Payoff Matrix.
+,,"A way of representing what each player in a game wins or loses, as a function of his and his opponent's strategies."
+,,Percentile.
+,,The pth percentile of a list is the smallest number such that at least p% of the numbers in the list are no larger than it. The pth percentile of a random variable is the smallest number such that the chance that the random variable is no larger than it is at least p%. C.f. quantile.
+,,Permutation.
+,,"A permutation of a set is an arrangement of the elements of the set in some order. If the set has n things in it, there are n! different orderings of its elements. For the first element in an ordering, there are n possible choices, for the second, there remain n?1 possible choices, for the third, there are n?2, etc., and for the nth element of the ordering, there is a single choice remaining. By the fundamental rule of counting, the total number of sequences is thus n×(n?1)×(n?2)×…×1. Similarly, the number of orderings of length k one can form from n?k things is n×(n?1)×(n?2)×…×(n?k+1) = n!/(n?k)!. This is denoted nPk, the number of permutations of n things taken k at a time. C.f. combinations."
+,,Placebo.
+,,"A ""dummy"" treatment that has no pharmacological effect; e.g., a sugar pill."
+,,Placebo effect.
+,,"The belief or knowledge that one is being treated can itself have an effect that confounds with the real effect of the treatment. Subjects given a placebo as a pain-killer report statistically significant reductions in pain in randomized experiments that compare them with subjects who receive no treatment at all. This very real psychological effect of a placebo, which has no direct biochemical effect, is called the placebo effect. Administering a placebo to the control group is thus important in experiments with human subjects; this is the essence of a blind experiment."
+,,Point of Averages.
+,,"In a scatterplot, the point whose coordinates are the arithmetic means of the corresponding variables. For example, if the variable X is plotted on the horizontal axis and the variable Y is plotted on the vertical axis, the point of averages has coordinates (mean of X, mean of Y)."
+,,Poisson Distribution.
+,,"The Poisson distribution is a discrete probability distribution that depends on one parameter, m. If X is a random variable with the Poisson distribution with parameter m, then the probability that X = k is"
+
+,,"E?m × mk/k!, k = 0, 1, 2, … ,"
+
+,,"where E is the base of the natural logarithm and ! is the factorial function. For all other values of k, the probability is zero."
+,,"The expected value the Poisson distribution with parameter m is m, and the standard error of the Poisson distribution with parameter m is m½."
+,,Population.
+,,"A collection of units being studied. Units can be people, places, objects, epochs, drugs, procedures, or many other things. Much of statistics is concerned with estimating numerical properties (parameters) of an entire population from a random sample of units from the population."
+,,Population Mean.
+,,"The mean of the numbers in a numerical population. For example, the population mean of a box of numbered tickets is the mean of the list comprised of all the numbers on all the tickets. The population mean is a parameter. C.f. sample mean."
+,,Population Percentage.
+,,"The percentage of units in a population that possess a specified property. For example, the percentage of a given collection of registered voters who are registered as Republicans. If each unit that possesses the property is labeled with ""1,"" and each unit that does not possess the property is labeled with ""0,"" the population percentage is the same as the mean of that list of zeros and ones; that is, the population percentage is the population mean for a population of zeros and ones. The population percentage is a parameter. C.f. sample percentage."
+,,Population Standard Deviation.
+,,"The standard deviation of the values of a variable for a population. This is a parameter, not a statistic. C.f. sample standard deviation."
+,,Post hoc ergo propter hoc.
+,,"""After this, therefore because of this."" A fallacy of logic known since classical times: inferring a causal relation from correlation. Don't do this at home!"
+,,Power.
+,,Refers to an hypothesis test. The power of a test against a specific alternative hypothesis is the chance that the test correctly rejects the null hypothesis when the alternative hypothesis is true.
+,,"Premise, logical premise."
+,,A premise is a proposition that is assumed to be true as part of a logical argument.
+,,Prima facie.
+,,"Latin for ""at first glance."" ""On the face of it.""  Prima facie evidence for something is information that at first glance supports the conclusion. On closer examination, that might not be true; there could be another explanation for the evidence."
+,,Principle of insufficient reason (Laplace)
+,,"Laplace's principle of insufficient reason says that if there is no reason to believe that the possible outcomes of an experiment are not equally likely, one should assume that the outcomes are equally likely. This is an example of a fallacy called appeal to ignorance."
+,,Probability.
+,,"The probability of an event is a number between zero and 100%. The meaning (interpretation) of probability is the subject of theories of probability, which differ in their interpretations. However, any rule for assigning probabilities to events has to satisfy the axioms of probability."
+,,Probability density function.
+,,"The chance that a continuous random variable is in any range of values can be calculated as the area under a curve over that range of values. The curve is the probability density function of the random variable. That is, if X is a continuous random variable, there is a function f(x) such that for every pair of numbers a?b,"
+
+,,P(a? X ?b) = (area under f between a and b);
+
+,,"f is the probability density function of X. For example, the probability density function of a random variable with a standard normal distribution is the normal curve. Only continuous random variables have probability density functions.",
+,,Probability Distribution.,
+,,"The probability distribution of a random variable specifies the chance that the variable takes a value in any subset of the real numbers. (The subsets have to satisfy some technical conditions that are not important for this course.) The probability distribution of a random variable is completely characterized by the cumulative probability distribution function; the terms sometimes are used synonymously. The probability distribution of a discrete random variable can be characterized by the chance that the random variable takes each of its possible values. For example, the probability distribution of the total number of spots S showing on the roll of two fair dice can be written as a table:",
+,,,
+,,s,P(S=s)
+,,2,Jan-36
+,,3,Feb-36
+,,4,Mar-36
+,,5,Apr-36
+,,6,May-36
+,,7,Jun-36
+,,8,May-36
+,,9,Apr-36
+,,10,Mar-36
+,,11,Feb-36
+,,12,Jan-36
+
+,,The probability distribution of a continuous random variable can be characterized by its probability density function.
+,,Probability Histogram.
+,,"A probability histogram for a random variable is analogous to a histogram of data, but instead of plotting the area of the bins proportional to the relative frequency of observations in the class interval, one plots the area of the bins proportional to the probability that the random variable is in the class interval."
+,,Probability Sample.
+,,A sample drawn from a population using a random mechanism so that every element of the population has a known chance of ending up in the sample.
+,,"Probability, Theories of."
+,,"A theory of probability is a way of assigning meaning to probability statements such as ""the chance that a thumbtack lands point-up is 2/3."" That is, a theory of probability connects the mathematics of probability, which is the set of consequences of the axioms of probability, with the real world of observation and experiment. There are several common theories of probability. According to the frequency theory of probability, the probability of an event is the limit of the percentage of times that the event occurs in repeated, independent trials under essentially the same circumstances. According to the subjective theory of probability, a probability is a number that measures how strongly we believe an event will occur. The number is on a scale of 0% to 100%, with 0% indicating that we are completely sure it won't occur, and 100% indicating that we are completely sure that it will occur. According to the theory of equally likely outcomes, if an experiment has n possible outcomes, and (for example, by symmetry) there is no reason that any of the n possible outcomes should occur preferentially to any of the others, then the chance of each outcome is 100%/n. Each of these theories has its limitations, its proponents, and its detractors."
+,,"Proposition, logical proposition."
+,,"A logical proposition is a statement that can be either true or false. For example, ""the sun is shining in Berkeley right now"" is a proposition. See also &, ?, ?, |, XOR, converse, contrapositive and logical argument."
+,,Prosecutor's Fallacy.
+,,"The prosecutor's fallacy consists of confusing two conditional probabilities: P(A|B) and P(B|A). For instance, P(A|B) could be the chance of observing the evidence if the accused is guilty, while P(B|A) is the chance that the accused is guilty given the evidence. The latter might not make sense at all, but even when it does, the two numbers need not be equal. This fallacy is related to a common misinterpretation of P-values."
+,,
+
+,,
+,,Q
+
+,,Qualitative Variable.
+,,"A qualitative variable is one whose values are adjectives, such as colors, genders, nationalities, etc. C.f. quantitative variable and categorical variable."
+,,Quantile.
+,,"The qth quantile of a list (0 < q ? 1) is the smallest number such that the fraction q or more of the elements of the list are less than or equal to it. I.e., if the list contains n numbers, the qth quantile, is the smallest number Q such that at least n×q elements of the list are less than or equal to Q."
+,,Quantitative Variable.
+,,"A variable that takes numerical values for which arithmetic makes sense, for example, counts, temperatures, weights, amounts of money, etc. For some variables that take numerical values, arithmetic with those values does not make sense; such variables are not quantitative. For example, adding and subtracting social security numbers does not make sense. Quantitative variables typically have units of measurement, such as inches, people, or pounds."
+,,Quartiles.
+,,"There are three quartiles. The first or lower quartile (LQ) of a list is a number (not necessarily a number in the list) such that at least 1/4 of the numbers in the list are no larger than it, and at least 3/4 of the numbers in the list are no smaller than it. The second quartile is the median. The third or upper quartile (UQ) is a number such that at least 3/4 of the entries in the list are no larger than it, and at least 1/4 of the numbers in the list are no smaller than it. To find the quartiles, first sort the list into increasing order. Find the smallest integer that is at least as big as the number of entries in the list divided by four. Call that integer k. The kth element of the sorted list is the lower quartile. Find the smallest integer that is at least as big as the number of entries in the list divided by two. Call that integer l. The lth element of the sorted list is the median. Find the smallest integer that is at least as large as the number of entries in the list times 3/4. Call that integer m. The mth element of the sorted list is the upper quartile."
+,,Quota Sample.
+,,"A quota sample is a sample picked to match the population with respect to some summary characteristics. It is not a random sample. For example, in an opinion poll, one might select a sample so that the proportions of various ethnicities in the sample match the proportions of ethnicities in the overall population from which the sample is drawn. Matching on summary statistics does not guarantee that the sample comes close to matching the population with respect to the quantity of interest. As a result, quota samples are typically biased, and the size of the bias is generally impossible to determine unless the result can be compared with a known result for the whole population or for a random sample. Moreover, with a quota sample, it is impossible to quantify how representative of the population a quota sample is likely to be—quota sampling does not allow one to quantify the likely size of sampling error. Quota samples are to be avoided, and results based on quota samples are to be viewed with suspicion. See also convenience sample."
+,,
+
+,,
+,,R
+
+,,Random Error.
+,,"All measurements are subject to error, which can often be broken down into two components: a bias or systematic error, which affects all measurements the same way; and a random error, which is in general different each time a measurement is made, and behaves like a number drawn with replacement from a box of numbered tickets whose average is zero."
+,,Random Event.
+,,See random experiment.
+,,Random Experiment.
+,,"An experiment or trial whose outcome is not perfectly predictable, but for which the long-run relative frequency of outcomes of different types in repeated trials is predictable. Note that ""random"" is different from ""haphazard,"" which does not necessarily imply long-term regularity."
+,,Random Sample.
+,,"A random sample is a sample whose members are chosen at random from a given population in such a way that the chance of obtaining any particular sample can be computed. The number of units in the sample is called the sample size, often denoted n. The number of units in the population often is denoted N. Random samples can be drawn with or without replacing objects between draws; that is, drawing all n objects in the sample at once (a random sample without replacement), or drawing the objects one at a time, replacing them in the population between draws (a random sample with replacement). In a random sample with replacement, any given member of the population can occur in the sample more than once. In a random sample without replacement, any given member of the population can be in the sample at most once. A random sample without replacement in which every subset of n of the N units in the population is equally likely is also called a simple random sample. The term random sample with replacement denotes a random sample drawn in such a way that every n-tuple of units in the population is equally likely. See also probability sample."
+,,Random Variable.
+,,"A random variable is an assignment of numbers to possible outcomes of a random experiment. For example, consider tossing three coins. The number of heads showing when the coins land is a random variable: it assigns the number 0 to the outcome {T, T, T}, the number 1 to the outcome {T, T, H}, the number 2 to the outcome {T, H, H}, and the number 3 to the outcome {H, H, H}."
+,,Randomized Controlled Experiment.
+,,"An experiment in which chance is deliberately introduced in assigning subjects to the treatment and control groups. For example, we could write an identifying number for each subject on a slip of paper, stir up the slips of paper, and draw slips without replacement until we have drawn half of them. The subjects identified on the slips drawn could then be assigned to treatment, and the rest to control. Randomizing the assignment tends to decrease confounding of the treatment effect with other factors, by making the treatment and control groups roughly comparable in all respects but the treatment."
+,,Range.
+,,"The range of a set of numbers is the largest value in the set minus the smallest value in the set. Note that as a statistical term, the range is a single number, not a range of numbers."
+,,Real number
+,,"Loosely speaking, the real numbers are all numbers that can be represented as fractions (rational numbers), whether proper or improper—and all numbers in between the rational numbers. That is, the real numbers comprise the rational numbers and all limits of Cauchy sequences of rational numbers, where the Cauchy sequence is with respect to the absolute value metric. (More formally, the real numbers are the completion of the set of rational numbers in the topology induced by the absolute value function.) The real numbers contain all integers, all fractions, and all irrational (and transcendental) numbers, such as ?, e, and 2½. There are uncountably many real numbers between 0 and 1; in contrast, there are only countably many rational numbers between 0 and 1."
+,,"Regression, Linear Regression."
+,,"Linear regression fits a line to a scatterplot in such a way as to minimize the sum of the squares of the residuals. The resulting regression line, together with the standard deviations of the two variables or their correlation coefficient, can be a reasonable summary of a scatterplot if the scatterplot is roughly football-shaped. In other cases, it is a poor summary. If we are regressing the variable Y on the variable X, and if Y is plotted on the vertical axis and X is plotted on the horizontal axis, the regression line passes through the point of averages, and has slope equal to the correlation coefficient times the SD of Y divided by the SD of X. This page shows a scatterplot, with a button to plot the regression line."
+,,Regression Fallacy.
+,,The regression fallacy is to attribute the regression effect to an external cause.
+,,"Regression Toward the Mean, Regression Effect."
+,,"Suppose one measures two variables for each member of a group of individuals, and that the correlation coefficient of the variables is positive (negative). If the value of the first variable for that individual is above average, the value of the second variable for that individual is likely to be above (below) average, but by fewer standard deviations than the first variable is. That is, the second observation is likely to be closer to the mean in standard units. For example, suppose one measures the heights of fathers and sons. Each individual is a (father, son) pair; the two variables measured are the height of the father and the height of the son. These two variables will tend to have a positive correlation coefficient: fathers who are taller than average tend to have sons who are taller than average. Consider a (father, son) pair chosen at random from this group. Suppose the father's height is 3SD above the average of all the fathers' heights. (The SD is the standard deviation of the fathers' heights.) Then the son's height is also likely to be above the average of the sons' heights, but by fewer than 3SD (here the SD is the standard deviation of the sons' heights)."
+,,"In an hypothesis test using a test statistic, the rejection region is the set of values of the test statistic for which we reject the null hypothesis."
+,,Residual.
+,,"The difference between a datum and the value predicted for it by a model. In linear regression of a variable plotted on the vertical axis onto a variable plotted on the horizontal axis, a residual is the ""vertical"" distance from a datum to the line. Residuals can be positive (if the datum is above the line) or negative (if the datum is below the line). Plots of residuals can reveal computational errors in linear regression, as well as conditions under which linear regression is inappropriate, such as nonlinearity and heteroscedasticity. If linear regression is performed properly, the sum of the residuals from the regression line must be zero; otherwise, there is a computational error somewhere."
+,,Residual Plot.
+,,A residual plot for a regression is a plot of the residuals from the regression against the explanatory variable.
+,,Resistant.
+,,A statistic is said to be resistant if corrupting a datum cannot change the statistic much. The mean is not resistant; the median is. See also breakdown point.
+,,Root-mean-square (RMS).
+,,"The RMS of a list is the square-root of the mean of the squares of the elements in the list. It is a measure of the average ""size"" of the elements of the list. To compute the RMS of a list, you square all the entries, average the numbers you get, and take the square-root of that average."
+,,Root-mean-square error (RMSE).
+,,"The RMSE of an an estimator of a parameter is the square-root of the mean squared error (MSE) of the estimator. In symbols, if X is an estimator of the parameter t, then"
+
+,,RMSE(X) = ( E( (X?t)2 ) )½.
+
+,,The RMSE of an estimator is a measure of the expected error of the estimator. The units of RMSE are the same as the units of the estimator. See also mean squared error.
+,,rms Error of Regression
+,,"The rms error of regression is the rms of the vertical residuals from the regression line. For regressing Y on X, the rms error of regression is equal to (1 ? r2)½×SDY, where r is the correlation coefficient between X and Y and SDY is the standard deviation of the values of Y."
+,,
+
+,,
+,,S
+
+,,Sample.
+,,A sample is a collection of units from a population. See also random sample.
+,,Sample Mean.
+,,"The arithmetic mean of a random sample from a population. It is a statistic commonly used to estimate the population mean. Suppose there are n data, {x1, x2, … , xn}. The sample mean is (x1 + x2 + … + xn)/n. The expected value of the sample mean is the population mean. For sampling with replacement, the SE of the sample mean is the population standard deviation, divided by the square-root of the sample size. For sampling without replacement, the SE of the sample mean is the finite-population correction ((N?n)/(N?1))½ times the SE of the sample mean for sampling with replacement, with N the size of the population and n the size of the sample."
+,,Sample Percentage.
+,,"The percentage of a random sample with a certain property, such as the percentage of voters registered as Democrats in a simple random sample of voters. The sample mean is a statistic commonly used to estimate the population percentage. The expected value of the sample percentage from a simple random sample or a random sample with replacement is the population percentage. The SE of the sample percentage for sampling with replacement is (p(1?p)/n )½, where p is the population percentage and n is the sample size. The SE of the sample percentage for sampling without replacement is the finite-population correction ((N?n)/(N?1))½ times the SE of the sample percentage for sampling with replacement, with N the size of the population and n the size of the sample. The SE of the sample percentage is often estimated by the bootstrap."
+,,Sample Size.
+,,The number of elements in a sample from a population.
+,,Sound argument.
+,,A logical argument is sound if it is logically valid and its premises are in fact true. An argument can be logically valid and yet not sound—if its premises are false.
+,,"Sample Standard Deviation, S."
+,,"The sample standard deviation S is an estimator of the standard deviation of a population based on a random sample from the population. The sample standard deviation is a statistic that measures how ""spread out"" the sample is around the sample mean. It is quite similar to the standard deviation of the sample, but instead of averaging the squared deviations (to get the rms of the deviations of the data from the sample mean) it divides the sum of the squared deviations by (number of data ? 1) before taking the square-root. Suppose there are n data, {x1, x2, … , xn}, with mean M = (x1 + x2 + … + xn)/n. Then"
+,,
+,,s = ( ((x1 ? M)2 + (x2 ? M)2 + … + (xn ? M)2)/(n?1) )½
+,,
+,,"The square of the sample standard deviation, S2 (the sample variance) is an unbiased estimator of the square of the SD of the population (the variance of the population)."
+
+,,Sample Sum.
+,,"The sum of a random sample from a population. The expected value of the sample sum is the sample size times the population mean. For sampling with replacement, the SE of the sample sum is the population standard deviation, times the square-root of the sample size. For sampling without replacement, the SE of the sample sum is the finite-population correction ((N?n)/(N?1))½ times the SE of the sample sum for sampling with replacement, with N the size of the population and n the size of the sample."
+,,Sample Survey.
+,,"A survey based on the responses of a sample of individuals, rather than the entire population."
+,,Sample Variance
+,,"The sample variance is the square of the sample standard deviation S. It is an unbiased estimator of the square of the population standard deviation, which is also called the variance of the population."
+,,Sampling distribution.
+,,The sampling distribution of an estimator is the probability distribution of the estimator when it is applied to random samples. The tool on this page allows you to explore empirically the sampling distribution of the sample mean and the sample percentage of random draws with or without replacement draws from a box of numbered tickets.
+,,Sampling error.
+,,"In estimating from a random sample, the difference between the estimator and the parameter can be written as the sum of two components: bias and sampling error. The bias is the average error of the estimator over all possible samples. The bias is not random. Sampling error is the component of error that varies from sample to sample. The sampling error is random: it comes from ""the luck of the draw"" in which units happen to be in the sample. It is the chance variation of the estimator. The average of the sampling error over all possible samples (the expected value of the sampling error) is zero. The standard error of the estimator is a measure of the typical size of the sampling error."
+,,Sampling unit.
+,,"A sample from a population can be drawn one unit at a time, or more than one unit at a time (one can sample clusters of units). The fundamental unit of the sample is called the sampling unit. It need not be a unit of the population."
+,,Scatterplot.
+,,"A scatterplot is a way to visualize bivariate data. A scatterplot is a plot of pairs of measurements on a collection of ""individuals"" (which need not be people). For example, suppose we record the heights and weights of a group of 100 people. The scatterplot of those data would be 100 points. Each point represents one person's height and weight. In a scatterplot of weight against height, the x-coordinate of each point would be height of one person, the y-coordinate of that point would be the weight of the same person. In a scatterplot of height against weight, the x-coordinates would be the weights and the y-coordinates would be the heights."
+,,Scientific Method.
+,,The scientific method….
+,,SD line.
+,,"For a scatterplot, a line that goes through the point of averages, with slope equal to the ratio of the standard deviations of the two plotted variables. If the variable plotted on the horizontal axis is called X and the variable plotted on the vertical axis is called Y, the slope of the SD line is the SD of Y, divided by the SD of X."
+,,Secular Trend.
+,,A linear association (trend) with time.
+,,Selection Bias.
+,,"A systematic tendency for a sampling procedure to include and/or exclude units of a certain type. For example, in a quota sample, unconscious prejudices or predilections on the part of the interviewer can result in selection bias. Selection bias is a potential problem whenever a human has latitude in selecting individual units for the sample; it tends to be eliminated by probability sampling schemes in which the interviewer is told exactly whom to contact (with no room for individual choice)."
+,,Self-Selection.
+,,"Self-selection occurs when individuals decide for themselves whether they are in the control group or the treatment group. Self-selection is quite common in studies of human behavior. For example, studies of the effect of smoking on human health involve self-selection: individuals choose for themselves whether or not to smoke. Self-selection precludes an experiment; it results in an observational study. When there is self-selection, one must be wary of possible confounding from factors that influence individuals' decisions to belong to the treatment group."
+,,Set.
+,,"A set is a collection of things, without regard to their order."
+,,"Significance, Significance level, Statistical significance."
+,,The significance level of an hypothesis test is the chance that the test erroneously rejects the null hypothesis when the null hypothesis is true.
+,,Simple Random Sample.
+,,"A simple random sample of n units from a population is a random sample drawn by a procedure that is equally likely to give every collection of n units from the population; that is, the probability that the sample will consist of any given subset of n of the N units in the population is 1/NCn. Simple random sampling is sampling at random without replacement (without replacing the units between draws). A simple random sample of size n from a population of N ? n units can be constructed by assigning a random number between zero and one to each unit in the population, then taking those units that were assigned the n largest random numbers to be the sample."
+,,Simpson's Paradox.
+,,What is true for the parts is not necessarily true for the whole. See also confounding.
+,,Skewed Distribution.
+,,A distribution that is not symmetrical.
+,,"Spread, Measure of."
+,,"See also inter-quartile range, range, and standard deviation."
+,,Square-Root Law.
+,,The Square-Root Law says that the standard error (SE) of the sample sum of n random draws with replacement from a box of tickets with numbers on them is
+,,
+,,"SE(sample sum) = n½×SD(box),"
+,,
+,,and the standard error of the sample mean of n random draws with replacement from a box of tickets is
+,,
+,,"SE(sample mean) = n?½×SD(box),"
+
+,,where SD(box) is the standard deviation of the list of the numbers on all the tickets in the box (including repeated values).
+,,Standard Deviation (SD).
+,,The standard deviation of a set of numbers is the rms of the set of deviations between each element of the set and the mean of the set. See also sample standard deviation.
+,,Standard Error (SE).
+,,"The Standard Error of a random variable is a measure of how far it is likely to be from its expected value; that is, its scatter in repeated experiments. The SE of a random variable X is defined to be"
+,,
+,,SE(X) = [E( (X ? E(X))2 )] ½.
+,,
+,,"That is, the standard error is the square-root of the expected squared difference between the random variable and its expected value. The SE of a random variable is analogous to the SD of a list."
+,,Standard Normal Curve.
+,,See normal curve.
+,,Standard Units.
+,,"A variable (a set of data) is said to be in standard units if its mean is zero and its standard deviation is one. You transform a set of data into standard units by subtracting the mean from each element of the list, and dividing the results by the standard deviation. A random variable is said to be in standard units if its expected value is zero and its standard error is one. You transform a random variable to standard units by subtracting its expected value then dividing by its standard error."
+,,Standardize.
+,,To transform into standard units.
+,,Statistic.
+,,"A number that can be computed from data, involving no unknown parameters. As a function of a random sample, a statistic is a random variable. Statistics are used to estimate parameters, and to test hypotheses."
+,,Stratified Sample.
+,,"In a stratified sample, subsets of sampling units are selected separately from different strata, rather than from the frame as a whole."
+,,Stratified sampling
+,,The act of drawing a stratified sample.
+,,Stratum
+,,"In random sampling, sometimes the sample is drawn separately from different disjoint subsets of the population. Each such subset is called a stratum. (The plural of stratum is strata.) Samples drawn in such a way are called stratified samples. Estimators based on stratified random samples can have smaller sampling errors than estimators computed from simple random samples of the same size, if the average variability of the variable of interest within strata is smaller than it is across the entire population; that is, if stratum membership is associated with the variable."
+,,"For example, to determine average home prices in the U.S., it would be advantageous to stratify on geography, because average home prices vary enormously with location. We might divide the country into states, then divide each state into urban, suburban, and rural areas; then draw random samples separately from each such division."
+,,Studentized score
+,,"The observed value of a statistic, minus the expected value of the statistic, divided by the estimated standard error of the statistic."
+,,Student's t curve.
+,,"Student's t curve is a family of curves indexed by a parameter called the degrees of freedom, which can take the values 1, 2, … Student's t curve is used to approximate some probability histograms. Consider a population of numbers that are nearly normally distributed and have population mean is ?. Consider drawing a random sample of size n with replacement from the population, and computing the sample mean M and the sample standard deviation S. Define the random variable"
+
+,,T = (M ? ?)/(S/n½).
+
+,,"If the sample size n is large, the probability histogram of T can be approximated accurately by the normal curve. However, for small and intermediate values of n, Student's t curve with n ? 1 degrees of freedom gives a better approximation. That is,"
+
+,,"P(a < T < b) is approximately the area under Student's T curve with n ? 1 degrees of freedom, from a to b."
+
+,,"Student's t curve can be used to test hypotheses about the population mean and construct confidence intervals for the population mean, when the population distribution is known to be nearly normally distributed. This page contains a tool that shows Student's t curve and lets you find the area under parts of the curve."
+,,"Subject, Experimental Subject."
+,,A member of the control group or the treatment group.
+,,Subset.
+,,"A subset of a given set is a collection of things that belong to the original set. Every element of the subset must belong to the original set, but not every element of the original set need be in a subset (otherwise, a subset would always be identical to the set it came from)."
+,,Survey.
+,,See sample survey.
+,,Symmetric Distribution.
+,,"The probability distribution of a random variable X is symmetric if there is a number a such that the chance that X?a+b is the same as the chance that X?a?b for every value of b. A list of numbers has a symmetric distribution if there is a number a such that the fraction of numbers in the list that are greater than or equal to a+b is the same as the fraction of numbers in the list that are less than or equal to a?b, for every value of b. In either case, the histogram or the probability histogram will be symmetrical about a vertical line drawn at x=a."
+,,Systematic error.
+,,"An error that affects all the measurements similarly. For example, if a ruler is too short, everything measured with it will appear to be longer than it really is (ignoring random error). If your watch runs fast, every time interval you measure with it will appear to be longer than it really is (again, ignoring random error). Systematic errors do not tend to average out."
+,,Systematic sample.
+,,"A systematic sample from a frame of units is one drawn by listing the units and selecting every kth element of the list. For example, if there are N units in the frame, and we want a sample of size N/10, we would take every tenth unit: the first unit, the eleventh unit, the 21st unit, etc. Systematic samples are not random samples, but they often behave essentially as if they were random, if the order in which the units appears in the list is haphazard. Systematic samples are a special case of cluster samples."
+,,Systematic random sample.
+,,"A systematic sample starting at a random point in the listing of units in the of frame, instead of starting at the first unit. Systematic random sampling is better than systematic sampling, but typically not as good as simple random sampling."
+,,
+
+,,
+,,T
+
+,,t test.,,,,
+,,An hypothesis test based on approximating the probability histogram of the test statistic by Student's t curve. t tests usually are used to test hypotheses about the mean of a population when the sample size is intermediate and the distribution of the population is known to be nearly normal.,,,,
+,,Test Statistic.,,,,
+,,"A statistic used to test hypotheses. An hypothesis test can be constructed by deciding to reject the null hypothesis when the value of the test statistic is in some range or collection of ranges. To get a test with a specified significance level, the chance when the null hypothesis is true that the test statistic falls in the range where the hypothesis would be rejected must be at most the specified significance level. The Z statistic is a common test statistic.",,,,
+,,Transformation.,,,,
+,,"Transformations turn lists into other lists, or variables into other variables. For example, to transform a list of temperatures in degrees Celsius into the corresponding list of temperatures in degrees Fahrenheit, you multiply each element by 9/5, and add 32 to each product. This is an example of an affine transformation: multiply by something and add something (y = ax + b is the general affine transformation of x; it's the familiar equation of a straight line). In a linear transformation, you only multiply by something (y = ax). Affine transformations are used to put variables in standard units. In that case, you subtract the mean and divide the results by the SD. This is equivalent to multiplying by the reciprocal of the SD and adding the negative of the mean, divided by the SD, so it is an affine transformation. Affine transformations with positive multiplicative constants have a simple effect on the mean, median, mode, quartiles, and other percentiles: the new value of any of these is the old one, transformed using exactly the same formula. When the multiplicative constant is negative, the mean, median, mode, are still transformed by the same rule, but quartiles and percentiles are reversed: the qth quantile of the transformed distribution is the transformed value of the 1?qth quantile of the original distribution (ignoring the effect of data spacing). The effect of an affine transformation on the SD, range, and IQR, is to make the new value the old value times the absolute value of the number you multiplied the first list by: what you added does not affect them.",,,,
+,,Treatment.,,,,
+,,The substance or procedure studied in an experiment or observational study. At issue is whether the treatment has an effect on the outcome or variable of interest.,,,,
+,,Treatment Effect.,,,,
+,,The effect of the treatment on the variable of interest. Establishing whether the treatment has an effect is the point of an experiment.,,,,
+,,Treatment group.,,,,
+,,"The individuals who receive the treatment, as opposed to those in the control group, who do not.",,,,
+,,Two-sided Hypothesis test.,,,,
+,,"C.f. one-sided test. An hypothesis test of the null hypothesis that the value of a parameter, ?, is equal to a null value, ?0, designed to have power against the alternative hypothesis that either ? < ?0 or ? > ?0 (the alternative hypothesis contains values on both sides of the null value). For example, a significance level 5%, two-sided z test of the null hypothesis that the mean of a population equals zero against the alternative that it is greater than zero would reject the null hypothesis for values of",,,,
+,,,,|(sample mean)|,,
+,,|z|,=,-----------------,>,1.96.
+,,,,SE(sample mean),,
+,,Type I and Type II errors.,,,,
+,,These refer to hypothesis testing. A Type I error occurs when the null hypothesis is rejected erroneously when it is in fact true. A Type II error occurs if the null hypothesis is not rejected when it is in fact false. See also significance level and power.,,,,
+,,,,,,
+
+,,,,,,
+,,U,,,,
+
+,,Unbiased.,,,,
+,,Not biased; having zero bias.,,,,
+,,Uncontrolled Experiment.,,,,
+,,"An experiment in which there is no control group; i.e., in which the method of comparison is not used: the experimenter decides who gets the treatment, but the outcome of the treated group is not compared with the outcome of a control group that does not receive treatment.",,,,
+,,Uncorrelated.,,,,
+,,"A set of bivariate data is uncorrelated if its correlation coefficient is zero. Two random variables are uncorrelated if the expected value of their product equals the product of their expected values. If two random variables are independent, they are uncorrelated. (The converse is not true in general.)",,,,
+,,Uncountable.,,,,
+,,A set is uncountable if it is not countable.
+,,Unimodal.
+,,Having exactly one mode.
+,,Union.
+,,"The union of two or more sets is the set of objects contained by at least one of the sets. The union of the events A and B is denoted ""A+B"", ""A or B"", and ""A?B"". C.f. intersection."
+,,Unit.
+,,A member of a population.
+,,Univariate.
+,,"Having or having to do with a single variable. Some univariate techniques and statistics include the histogram, IQR, mean, median, percentiles, quantiles, and SD. C.f. bivariate."
+,,Upper Quartile (UQ).
+,,See quartiles.
+,,
+
+,,
+,,V
+
+,,Valid (logical) argument.
+,,"A valid logical argument is one in which the truth of the premises indeed guarantees the truth of the conclusion. For example, the following logical argument is valid: If the forecast calls for rain, I will not wear sandals. The forecast calls for rain. Therefore, I will not wear sandals. This argument has two premises which, together, guarantee the truth of the conclusion. An argument can be logically valid even if its premises are false. See also invalid argument and sound argument."
+,,Variable.
+,,"A numerical value or a characteristic that can differ from individual to individual. See also categorical variable, qualitative variable, quantitative variable, discrete variable, continuous variable, and random variable."
+,,"Variance, population variance"
+,,"The variance of a list is the square of the standard deviation of the list, that is, the average of the squares of the deviations of the numbers in the list from their mean. The variance of a random variable X, Var(X), is the expected value of the squared difference between the variable and its expected value: Var(X) = E((X ? E(X))2). The variance of a random variable is the square of the standard error (SE) of the variable."
+,,Venn Diagram.
+,,"A pictorial way of showing the relations among sets or events. The universal set or outcome space is usually drawn as a rectangle; sets are regions within the rectangle. The overlap of the regions corresponds to the intersection of the sets. If the regions do not overlap, the sets are disjoint. The part of the rectangle included in one or more of the regions corresponds to the union of the sets. This page contains a tool that illustrates Venn diagrams; the tool represents the probability of an event by the area of the event."
+,,
+
+,,
+,,W
+,,
+
+,,
+,,X
+
+,,"XOR, exclusive disjunction."
+,,"XOR is an operation on two logical propositions. If p and q are two propositions, (p XOR q) is a proposition that is true if either p is true or if q is true, but not both. (p XOR q) is logically equivalent to ((p | q) & !(p & q))."
+
+,,
+,,Y
+,,
+
+,,
+,,Z
+
+,,z-score
+,,The observed value of the Z statistic.
+,,Z statistic
+,,"A Z statistic is a test statistic whose distribution under the null hypothesis has expected value zero and can be approximated well by the normal curve. Usually, Z statistics are constructed by standardizing some other statistic. The Z statistic is related to the original statistic by"
+,,
+,,Z = (original ? expected value of original)/SE(original).
+
+,,z-test
+,,An hypothesis test based on approximating the probability histogram of the Z statistic under the null hypothesis by the normal curve.

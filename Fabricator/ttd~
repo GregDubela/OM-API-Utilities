@@ -1,0 +1,8 @@
+
+
+flag file will contain
+
+--word_length=[6-9]
+--starts_with=vib
+--ends_with=ed
+--plurals=False

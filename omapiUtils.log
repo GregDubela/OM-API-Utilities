@@ -1,0 +1,11 @@
+INFO:root:Directory to Read...c:\Documents and Settings\u163202\Root-1\OM-API-Utilities\ListsToBeCreated 
+
+INFO:root:Trying to create List from c:\Documents and Settings\u163202\Root-1\OM-API-Utilities\ListsToBeCreated\jeplist3.csv 
+
+
+INFO:root:Number of item dictionaries: 5
+INFO:root:{'word': '"$200"', 'question': '"A flexor is one of these that contracts to bend a part of the body"', 'correctAnswer': '"a muscle"', 'defn': '"Category: THE HUMAN BODY"'}
+INFO:root:{'word': '"$200"', 'question': '"Oh baby!  She had the time of her life partnering Patrick Swayze in the big finale of the original \\"Dirty Dancing"', 'correctAnswer': '"Jennifer Grey"', 'defn': '"Category: DIRTY DANCING WITH THE STARS"'}
+INFO:root:{'word': '"$200"', 'question': '"\\"Nothin\\\' says lovin\\\' like something from the oven"', 'correctAnswer': '"Pillsbury"', 'defn': '"Category: AD SLOGANS"'}
+INFO:root:{'word': '"$200"', 'question': '"In a Norton Juster novel', 'correctAnswer': '"toll booth"', 'defn': '"Category: CHILDREN\'S LIT CHARACTERS"'}
+INFO:root:{'word': '"$200"', 'question': '"Only 3 men received this military decoration during the Revolutionary War; 2 of the badges still exist"', 'correctAnswer': '"the Purple Heart"', 'defn': '"Category: THE COLOR PURPLE"'}
