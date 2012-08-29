@@ -1,12 +1,19 @@
-
-
-flag file will contain
-
---word_length=[6-9]
---starts_with=vib
---ends_with=ed
---plurals=False
+To be added to flag_file:
 --max_words_in_list=75
 --abandon_if_matches_are_greater_than=500
 --alphabetical_or_random=A
 --regex=^vib.{1-3}.ed
+--sharing=public
+
+
+Copy over 'bad words'
+
+Have a List Class
+An items class
+
+Make sure that the wordnet dictionary is able to access Eng words
+
+Create a List shell
+Post each item to the List
+
+
