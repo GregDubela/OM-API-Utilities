@@ -1,0 +1,7 @@
+Steps:
+
+1. Read the relevant file(s)
+2. Parse XML Using BeautifulSoup
+3. Form Dicts of Lists and Items
+4. Create OM Lists
+5. Record the creations in a separate file

@@ -1,0 +1,134 @@
+'''
+A Python script to read Jeopardy J!Archive files
+Parses the XML files using BeautifulSoup
+Creates dictionaries
+Then calls the OpenMinds API and creates Lists
+
+Author: Ram Narasimhan
+(Using OpenMinds API code authored by Adam Stepinski)
+'''
+
+import logging
+import oauth2
+import os
+os.system("cls")    #Windows based systems us
+import time
+import httplib
+import urllib
+import sys
+
+import string
+import math
+
+import gflags
+#NLTK related imports
+import re
+import enchant
+from nltk.corpus import wordnet as wn
+from bs4 import BeautifulSoup
+
+from libraries.python.web_util import encode_json, decode_json
+
+import cfg
+from text_utils import *
+from om_utils import *
+from om_client import *
+
+#Steps:
+#1. Read the relevant file(s)
+#2. Parse XML Using BeautifulSoup
+#3. Form Dicts of Lists and Items
+#4. Create OM Lists
+#5. Record the creations in a separate file
+
+logging.basicConfig(level=logging.DEBUG, filename='jt.log')
+logging.basicConfig(level=logging.INFO, filename='jt.log')
+logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
+
+
+def create_list_of_item_dicts(mWords):
+
+    idictsList = []
+
+    for w in mWords:
+        iDict = {}
+        addElementToDict("vocab", iDict, "word", w)
+        addElementToDict("vocab", iDict, "defn", meaning(w)[0])        
+        idictsList.append(iDict)
+
+    return idictsList
+
+
+
+if __name__ == '__main__':
+
+  argv = cfg.FLAGS(sys.argv)
+  print argv
+  if cfg.FLAGS.om_access_token:
+      client = OpenMindsThreeLeggedClient(cfg.FLAGS.om_access_token, cfg.FLAGS.om_host)
+  else:
+      client = OpenMindsTwoLeggedClient(cfg.FLAGS.om_key, cfg.FLAGS.om_secret, cfg.FLAGS.om_host)
+  
+  #logging.info("Me: %s" % client.get_user('me'))
+
+# Step 1 Read in the relevant file
+  #read the input directory path
+  rawDirPath = r'C:\Documents and Settings\u163202\crossword\data\jeopardy\season27'
+
+  #dirList=os.listdir(rawDirPath) #list of filenames
+  filename = os.path.join(rawDirPath,"game_id_3704")
+#  filename = os.path.join(rawDirPath,"game_id_3706")
+  f = open(filename)
+
+
+#Step 2. Parse XML Using BeautifulSoup
+  soup = BeautifulSoup(f, "html5lib")
+#  print(soup.prettify())
+#  print soup.title.string
+#  print soup.get_text()
+
+#  for string in soup.strings:
+#      print(repr(string))
+
+#  for catname in soup(class_="category_name"):
+#      print catname.get_text()
+
+#  for q in soup(class_="clue_text"):
+#      print q.get_text()
+  
+
+#  print  soup.find_all(text=re.compile("response"))
+
+  
+  numCorrect=0
+  divWithCorrectResponses = []
+
+  #d in the following is a tag with attrs.
+  # the attr of interest is onmouseover. All other divs won't have the onmouseover
+
+  for d in soup.findAll('div'):
+      try:
+          divWithCorrectResponses.append(d['onmouseover'])
+          numCorrect+= 1
+          print
+      except:
+          pass
+
+  print numCorrect
+
+  for cr in divWithCorrectResponses:
+      ansSearch = re.search('_response">(.*)</em>', cr, re.IGNORECASE)      
+      if ansSearch:
+          print ansSearch.group(1)
+
+  print divWithCorrectResponses[60]
+
+      
+
+
+#  for a in soup("onmouseover"):
+#      print a.get_text()
+
+#3. Form Dicts of Lists and Items
+#4. Create OM Lists
+#5. Record the creations in a separate file
