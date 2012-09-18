@@ -150,5 +150,21 @@ def searchDictFor(dictionary,regpattern,minLength=1,maxLength=15,plurals=False):
     return matchingWords
 
 
+def remove_italics_html_tag(data):
+    '''
+    Utility function to remove <i> and </i> from a given string
+    '''
+    p = re.compile(r'</?i>') #the pattern as compiled regex object
+    return p.sub('"', data)
+
+def remove_backslash_apostrophe(datastr):
+    '''
+    Utility function to remove the backslash (\)  from a given \' string
+    These show up in parsed HTML strings
+    '''
+    p = re.compile(r"\\\'") #the pattern as compiled regex object
+    return p.sub("'", datastr)
+
+
 
 

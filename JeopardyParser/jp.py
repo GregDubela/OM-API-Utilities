@@ -46,22 +46,6 @@ logging.basicConfig(level=logging.INFO, filename='jt.log')
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
 
-def remove_italics_html_tag(data):
-    '''
-    Utility function to remove <i> and </i> from a given string
-    '''
-    p = re.compile(r'</?i>') #the pattern as compiled regex object
-    return p.sub('"', data)
-
-def remove_backslash_apostrophe(datastr):
-    '''
-    Utility function to remove the backsladh (\)  from a given \' string
-    These show up in parsed HTML strings
-    '''
-    p = re.compile(r"\\\'") #the pattern as compiled regex object
-    return p.sub("'", datastr)
-
-
 def extract_jeopardy_items_from_soup(soup):
     '''
     
@@ -137,7 +121,7 @@ def extract_jeopardy_items_from_soup(soup):
             question.append(qu)
 
 
-    # extract cat and dv from clue category (J 1-6, DJ 7-12, FJ=13) into
+    # extract cat and dv from clue category (J 1-6, DJ 7-12, FJ=13) int
     for index, clstr in enumerate(clueIDstring):
         fj = re.search("_FJ" ,clstr, re.IGNORECASE)     #_J_ _DJ_ _FJ
         if fj:
@@ -190,6 +174,27 @@ def extract_jeopardy_items_from_soup(soup):
 #  print  soup.find_all(text=re.compile("response"))
 
 
+# This is a J Archive specific function
+def mediaPresentInItem(iteminfo):
+    '''
+    Returns 1 if it is a "media question"
+    '''
+    p = r'j-archive.com/media' #the pattern as compiled regex object    
+    if re.search(p, iteminfo["defn"], re.IGNORECASE):
+        print "Media found"
+        print
+        print
+        print
+        return 1
+    if re.search(p, iteminfo["word"], re.IGNORECASE):
+        print "Media found"
+        print
+        print
+        print
+        return 1
+    return 0
+
+
 
 
 if __name__ == '__main__':
@@ -210,13 +215,14 @@ if __name__ == '__main__':
   #dirList=os.listdir(rawDirPath) #list of filenames
   #  filename = os.path.join(rawDirPath,"game_id_3704")
   #  filename = os.path.join(rawDirPath,"game_id_3686")
-  filename = os.path.join(rawDirPath,"game_id_3697")
+  filename = os.path.join(rawDirPath,"game_id_3501")
   f = open(filename)
 
   # Step 2. Parse XML Using BeautifulSoup
   soup = BeautifulSoup(f, "html5lib")
 
   # Step 3. Form Dicts of Items
+  # Create a List of Dictionaries
   itemDictsList = extract_jeopardy_items_from_soup(soup)
 
   # Step 4. Create a shell list
@@ -242,9 +248,10 @@ if __name__ == '__main__':
   for iteminfo in itemDictsList:
       numI += 1
       print iteminfo["word"].upper(), " : ", iteminfo["defn"]
-      if (cfg.FLAGS.debug_lvl == False): #not debug means create OM Lists      
-          it = client.create_item(lid, iteminfo)
-          isResponseErrorFree(it) # will print out errors if any
+      if not mediaPresentInItem(iteminfo): # media questions are not loaded to OM
+          if (cfg.FLAGS.debug_lvl == False): #not debug means create OM Lists      
+              it = client.create_item(lid, iteminfo)
+              isResponseErrorFree(it) # will print out errors if any
 
   # Step 6. Record the creations in two separate files
   fname = "jlists_created.txt"

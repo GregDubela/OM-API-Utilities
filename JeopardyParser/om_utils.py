@@ -17,7 +17,8 @@ GRADE = 'grade'
 SECTION = 'section'
 STANDARD = 'standard'
 SHARING = 'sharing'
-VALID_LIST_PROPERTIES = (TITLE, DESCRIPTION, FORMAT, SECTION, STANDARD, SHARING)
+TAGS = 'tags'
+VALID_LIST_PROPERTIES = (TITLE, DESCRIPTION, FORMAT, SECTION, STANDARD, SHARING, TAGS)
 
 WORD = 'word'
 POS = 'pos'
@@ -206,11 +207,10 @@ def addElementToDict(listOrItem, dictionary, kw, el):
   
   valid_kw = validate_keyword(listOrItem, kw)
 
-  try:
-    if format_ok and valid_kw:
-      dictionary[kw] = el
-  except ValueError:
-    print("Incorrect %s Supplied" % kw)    
+  if format_ok and valid_kw:
+    dictionary[kw] = el
+  else:
+    print("Incorrect %s Supplied %s" % kw, el)    
       
 
 
@@ -478,6 +478,39 @@ def  create_item_dicts(textlist,f_type,two_lines=False):
 
 
 
+def createADictWithListMetadata(title, tags, lformat = "vocabulary", sharing = "public"):
+
+  ldict = {}
+  newList = []
+  
+  # Usage addElementToDict(identifier, ldict,kw,el) in om_utils
+  addElementToDict("list", ldict, "format", lformat)
+  addElementToDict("list", ldict, "title", title)
+  addElementToDict("list", ldict, "sharing", sharing)
+  addElementToDict("list", ldict, "tags", tags)
+
+  # create a new list
+  print ldict
+  return ldict
 
 
+def  write_to_file(fname, string):
 
+  fo = open(fname, "a+") #append
+  fo.write(string)
+  fo.close()
+
+
+def  write_object_to_file(fname, obj):
+
+  fo = open(fname, "a+") #append
+  fo.write("\n\n\n\n")
+  for o in obj:
+    #for k,v in o.items():
+    try:
+      fo.write(o["word"] + ": " + o["defn"] + "\n")
+    except Exception, e:
+      print "unprintable char", e
+
+
+  fo.close()
