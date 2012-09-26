@@ -81,9 +81,17 @@ if __name__ == '__main__':
   rawDirPath = r'C:\Documents and Settings\u163202\Root-1\OM-API-Utilities\ListsToBeCreated'
 
   #dirList=os.listdir(rawDirPath) #list of filenames
-  #  filename = os.path.join(rawDirPath,"game_id_3704")
-  #  filename = os.path.join(rawDirPath,"game_id_3686")
-  filename = os.path.join(rawDirPath,"chemistry")
+
+###########################
+  filename = os.path.join(rawDirPath,"chemistry-thermodynamics.txt")
+  nChunks = 3
+  subsection = 3       # 1,2...nchunks
+
+  title = "Thermodynamics  #" + str(subsection)
+  tags = ["Science", "Chemistry", "Thermodynamics", "Entropy", "Laws of Thermodynamics", "Enthalpy"]
+  desc = "The study of Thermodynamics"
+###########################
+
   f = open(filename)
 
  
@@ -94,9 +102,7 @@ if __name__ == '__main__':
   #    print i["word"], i["defn"]
 
   # Step 3. Create a shell list with List Meta Information
-  title = "Chemistry FlexBook List #8"
-  tags = ["Chemistry", "flexbook"]
-  ldict = createADictWithListMetadata(title, tags, lformat = "vocabulary", sharing = "public")
+  ldict = createADictWithListMetadata(title, tags, desc, lformat = "vocabulary", sharing = "public") #omutils
 
   # Step 5. Create OM List Shell (Meta)
   if (cfg.FLAGS.debug_lvl == False): #not debug means create OM Lists
@@ -112,9 +118,15 @@ if __name__ == '__main__':
 
   # step 6: Add all the items to this new List    
   numI =0
+
+  #  nChunks defined above
+  #  subsection defined above         # 0,1,2...nchunks-1
+  if nChunks == subsection:
+      subsection = 0       # n mod n is the same as n mod 0
+
   for iteminfo in itemDictsList:
       numI += 1
-      if numI % 8 == 0: #split the list into 8 parts
+      if numI % nChunks == subsection: #split the list into N parts using (mod N)
           print iteminfo["word"].upper(), " : ", iteminfo["defn"]
           if (cfg.FLAGS.debug_lvl == False): #not debug means create OM Lists      
               it = client.create_item(lid, iteminfo)
@@ -122,7 +134,7 @@ if __name__ == '__main__':
 
   # Step 6. Record the creations in two separate files
   fname = "lists_created.txt"
-  jsonfname = "chemistry.json"
+  jsonfname = "ck12.json"
 
   if (cfg.FLAGS.debug_lvl == False): 
       print lid, title

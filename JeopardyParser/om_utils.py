@@ -478,7 +478,7 @@ def  create_item_dicts(textlist,f_type,two_lines=False):
 
 
 
-def createADictWithListMetadata(title, tags, lformat = "vocabulary", sharing = "public"):
+def createADictWithListMetadata(title, tags, desc, lformat = "vocabulary", sharing = "public"):
 
   ldict = {}
   newList = []
@@ -488,6 +488,7 @@ def createADictWithListMetadata(title, tags, lformat = "vocabulary", sharing = "
   addElementToDict("list", ldict, "title", title)
   addElementToDict("list", ldict, "sharing", sharing)
   addElementToDict("list", ldict, "tags", tags)
+  addElementToDict("list", ldict, "description", desc)
 
   # create a new list
   print ldict

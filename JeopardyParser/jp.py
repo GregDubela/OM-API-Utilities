@@ -155,25 +155,6 @@ def extract_jeopardy_items_from_soup(soup):
     return idictsList
 
 
-#querying the soup
-
-#  print(soup.prettify())
-#  print soup.title.string
-#  print soup.get_text()
-
-#  for string in soup.strings:
-#      print(repr(string))
-
-
-#  for q in soup(class_="clue_text"):
-#      print q.get_text()
-  
-#  for a in soup("onmouseover"):
-#      print a.get_text()
-
-#  print  soup.find_all(text=re.compile("response"))
-
-
 # This is a J Archive specific function
 def mediaPresentInItem(iteminfo):
     '''
