@@ -1,12 +1,14 @@
 '''
-A utility to EDIT User properties for OM users created by authenticated user. 
-reads from a csv file and updates the properties accordingly
+A utility to CREATE OM Lists using the API
+Reads all the csv files in a directory. Tries to create one list per file.
 
 Adapted from Adam's version by Ram Narasimhan
 '''
 
 import logging
 import oauth2
+import os
+import re
 import time
 import httplib
 import sys
@@ -17,10 +19,12 @@ from om_utils import *
 import cfg
 
 
-
+logging.basicConfig(level=logging.DEBUG, filename='omapiUtils.log')
+logging.basicConfig(level=logging.INFO, filename='omapiUtils.log')
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 # http://antonym.org/2005/03/a-real-python-logging-example.html is very good
 
+#It is important to use the right severity levels when you write you log calls. I tend to use INFO for generally useful stuff that I like to see traced while developing, but not at runtime, while I reserve DEBUG for the extra detailed information that is only useful when something is going wrong. The WARNING and lower I always have on at runtime, and in production are sent to an operator console.
 
 
 class AbstractOpenMindsClient(object):
@@ -74,10 +78,10 @@ class AbstractOpenMindsClient(object):
     return self._get_json('GET', '/api/data/lists/%s/' % list_id)
 
   def update_list(self, list_id, info):
-    return self._get_json('PUT', '/api/data/lists/%s/' % list_id, info)
+      return self._get_json('PUT', '/api/data/lists/%s/' % list_id, info)
 
   def create_list(self, info):
-    return self._get_json('POST', '/api/data/lists/', info)
+      return self._get_json('POST', '/api/lists/', info)
 
   # added by Ram. 
   def delete_list(self, list_id):
@@ -204,9 +208,65 @@ class OpenMindsThreeLeggedClient(AbstractOpenMindsClient):
     return connection.getresponse()
 
 
+def   count_number_of_occurrences(reg,textlist):
 
-# ram userId  4f7b854537eaef6866000007            
-            
+    nummatch=0
+    for r in textlist:
+        str1 = ''.join(str(e) for e in r) #convert row to a string
+        if re.match(reg,str1) != None:
+            nummatch+= 1
+    return nummatch
+
+
+def create_OMList_from_file(fname):
+    '''
+    Read a CSV file. Create JSONs for the List Header
+    Create JSONs for items. Create the list. Add the items.
+    '''
+    newList = []
+
+    textlist = read_all_csv_lines(fname)
+    print "Lists occurences:", count_number_of_occurrences('^[L|l]ist',textlist)
+    print "Item occurences:", count_number_of_occurrences('^[I|i]tem',textlist)
+
+    # one list dictionary for just the properties
+    ld = create_list_dict(textlist) # in om utils
+
+    try:
+        listType = ld["format"]
+        print "list of type: ", listType
+        # one dictionary for each item
+    except Exception, e:
+        logging.warning('Format type not specified. Aborting this file. %s \n' % fname)
+        return newList
+
+    idictsList = create_item_dicts(textlist, listType, two_lines=False) #om_utils
+
+    # create a new list
+    print ld
+    newList =  client.create_list(ld) # the actual list shell creation
+
+    # test for "error"
+    if isResponseErrorFree(newList)!=1:
+        return []
+
+    # double checking
+    try:
+        lid= newList["id"]
+    except ValueError, e:
+        logging.warning("new List ID is incorrect. Aborting this file %s \n" % fname)
+
+    # create new items
+    for iteminfo in idictsList:
+        logging.info(iteminfo)
+        it = client.create_item(lid,iteminfo)
+        isResponseErrorFree(it) # will print if there is error
+
+    return newList
+
+
+
+
 if __name__ == '__main__':
 
   argv = cfg.FLAGS(sys.argv)
@@ -216,62 +276,35 @@ if __name__ == '__main__':
   else:
     client = OpenMindsTwoLeggedClient(cfg.FLAGS.om_key, cfg.FLAGS.om_secret, cfg.FLAGS.om_host)
   
-  # logging.info("Me: %s" % client.get_user('me'))
+  logging.info("Me: %s" % client.get_user('me'))
 
-  infoToUpdateJSON = {}
+  #read the input directory path
+  currdir =  os.getcwd()
+  dirpath = os.path.join(currdir, cfg.FLAGS.directory)
 
-  userListToBeUpdated = {}
-  filename = 'emaillist.csv'
-  
-  # step 1 Read all users from the named CSV file 
-  # read in the CSV File (skip header row)
-  textlist = read_all_csv_users(filename)       #in om_utils
+  #print out all the csv files in that directory
+  logging.info("Directory to Read...%s \n" % dirpath)
 
-  userListToBeUpdated = create_user_properties_dicts(textlist)  #in om_utils
+  #read the input directory path
+  rawDirPath = r'C:\Documents and Settings\u163202\crossword\data\jeopardy\season27'
+  filename = os.path.join(rawDirPath,"chemistry_1")
+  f = open(filename)
 
-  print "Updating properties for users: \n"
-  printList(userListToBeUpdated)
-
-  # step 2 For each valid user, get user_id
-  existingUsersList =  client.get_users()
-
-  for u in existingUsersList:
-      try:
-          print u["email"]
-      except:
-          pass
-
-
-  numusers = 0
-  for user in userListToBeUpdated:
-      numusers+= 1
-      username = user["username"]
-      infoToUpdateJSON = user["JSON"]
-
-      userid = get_userid_given_username(existingUsersList,username)  #in om_utils.py      
-
-      # Step 3 update the property 
-      if isValidUser(userid):
-          client.update_user(userid,infoToUpdateJSON)     
-          logging.info("Username %s updated." % username)
-          print infoToUpdateJSON
-          
-      else:
-          logging.warning("Username %s not found. Couldn't be updated." % username)
+  dirList=os.listdir(dirpath) #list of filenames
+  for fname in dirList:
+      if filenameendsin(fname,"csv"):
+          filename = os.path.join(dirpath,fname)
+          logging.info("Trying to create List from %s \n\n" % filename)
+          newList = create_OMList_from_file(filename)
+          if newList:
+              print "Status of new List: OK"
+              print
+          else:
+              print "Skipped"
+              print
 
 
-
-  logging.info("Done with all user updates %d" % numusers)
-
-
-#  for u in existingUsersList:
-#      try:
-#          logging.info('User: %s' % u["username"])
-#      except Exception, e:
-#          logging.warning('User has no username %s' % u["id"])
-
-
-
-
-
-
+# Neat trick to switch between dev and prod from command line
+# if len(sys.argv) > 2 and sys.argv[2] == 'dev':
+#    web.config.debug = True
+#    web.config.debug = False

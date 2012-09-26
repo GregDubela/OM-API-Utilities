@@ -479,5 +479,19 @@ def  create_item_dicts(textlist,f_type,two_lines=False):
 
 
 
+def createADictWithListMetadata(title, lformat = "vocabulary", sharing = "public"):
+
+  ldict = {}
+  newList = []
+  
+  # Usage addElementToDict(identifier, ldict,kw,el) in om_utils
+  addElementToDict("list", ldict, "format", lformat)
+  addElementToDict("list", ldict, "title", title)
+  addElementToDict("list", ldict, "sharing", sharing)
+
+  # create a new list
+  print ldict
+  return ldict
+
 
 

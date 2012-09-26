@@ -78,10 +78,10 @@ class AbstractOpenMindsClient(object):
     return self._get_json('GET', '/api/data/lists/%s/' % list_id)
 
   def update_list(self, list_id, info):
-    return self._get_json('PUT', '/api/data/lists/%s/' % list_id, info)
+      return self._get_json('PUT', '/api/data/lists/%s/' % list_id, info)
 
   def create_list(self, info):
-    return self._get_json('POST', '/api/data/lists/', info)
+      return self._get_json('POST', '/api/lists/', info)
 
   # added by Ram. 
   def delete_list(self, list_id):
@@ -243,9 +243,10 @@ def create_OMList_from_file(fname):
     idictsList = create_item_dicts(textlist, listType, two_lines=False) #om_utils
 
     # create a new list
-    newList =  client.create_list(ld) # the actual list creation
-    # test for "error"
+    print ld
+    newList =  client.create_list(ld) # the actual list shell creation
 
+    # test for "error"
     if isResponseErrorFree(newList)!=1:
         return []
 
@@ -264,6 +265,8 @@ def create_OMList_from_file(fname):
     return newList
 
 
+
+
 if __name__ == '__main__':
 
   argv = cfg.FLAGS(sys.argv)
@@ -273,7 +276,7 @@ if __name__ == '__main__':
   else:
     client = OpenMindsTwoLeggedClient(cfg.FLAGS.om_key, cfg.FLAGS.om_secret, cfg.FLAGS.om_host)
   
-  # logging.info("Me: %s" % client.get_user('me'))
+  logging.info("Me: %s" % client.get_user('me'))
 
   #read the input directory path
   currdir =  os.getcwd()

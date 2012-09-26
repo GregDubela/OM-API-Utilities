@@ -10,6 +10,42 @@ from libraries.python.web_util import encode_json, decode_json
 from codecs import decode
 import re
 
+
+class HTTPError(Exception):
+  '''
+  Exception class used for server errors. Includes information to
+  format a JSON error response.
+  '''
+  def __init__(self, *args):
+    self.code = args[0]
+    if len(args) > 1:
+      self.message = args[1]
+    else:
+      self.message = None
+
+  def error_response(self):
+    return error_response(self.code, self.message)
+
+  def __str__(self):
+    return self.error_response()
+
+
+# http://www.packtpub.com/article/python-when-to-use-object-oriented-programming
+class Color:
+  def __init__(self, rgb_value, name):
+    self._rgb_value = rgb_value
+    self._name = name
+  def set_name(self, name):
+    self._name = name
+  def get_name(self):
+    return self._name
+
+class ResponseValidation:
+  def __init__(self):
+    pass
+
+
+
 def isResponseErrorFree(newList):
   try:
     if newList["error"]:
