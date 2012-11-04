@@ -1,9 +1,12 @@
 import re
+from nltk.corpus import wordnet as wn
+import nltk
+from nltk.corpus import brown
+from nltk.probability import *
+
+# Contains common utility functions used to solve NPR word puzzles
 
 # http://idrisr.wordpress.com/2011/02/01/npr-puzzle-finding-synonyms-with-python-and-wordnet/
-
-from nltk.corpus import wordnet as wn
-# Contains common utility functions used to solve NPR word puzzles
 
 
 def meaning(oneword):
@@ -24,19 +27,20 @@ def print_words_with_meanings(matches):
 
 
 
-# Collates upto 100 words with meanings that match the patterns
-def create_list_of_words_with_meanings(matches):
-
+def subset_list_of_words_to_those_with_meaning(wordList):
+    '''
+    Take a list of English words. Cut out the ones whose meaning is not known towordnet English dictionary 
+    '''
     wList = []
     numWords = 0
 
-    for m in matches:
-        if meaning(m): #print only those words whose meaning is known
+    for w in wordList:        
+        if meaning(w): #include only those words whose meaning is known
             #TODO: select the "most relevant" meaning. Going with the first one for now
             numWords += 1
-            wList.append(m)
-            if numWords ==100: #take up to first 100 matches
-                break
+            wList.append(w)
+#            if numWords ==100: #take up to first 100 matches
+#                break
 
     print numWords, "Words with meanings"
     return wList
@@ -150,6 +154,13 @@ def searchDictFor(dictionary,regpattern,minLength=1,maxLength=15,plurals=False):
     return matchingWords
 
 
+def remove_br_slash_tag(data):
+    '''
+    Utility function to remove <br />from a given string
+    '''
+    p = re.compile(r'<br />') #the pattern as compiled regex object
+    return p.sub('"', data)
+
 def remove_italics_html_tag(data):
     '''
     Utility function to remove <i> and </i> from a given string
@@ -166,5 +177,25 @@ def remove_backslash_apostrophe(datastr):
     return p.sub("'", datastr)
 
 
+# from http://stackoverflow.com/questions/5928704/how-do-i-find-the-frequency-count-of-a-word-in-english-using-wordnet
+def word_frequency(word):
+    '''
+    In WordNet, every Lemma has a frequency count that is returned by the method lemma.count() and that is stored in the file nltk_data/corpora/wordnet/cntlist.rev.
+    This function accesses that frequency count.
+    '''
+    syns = wn.synsets(word)
+    for s in syns:
+        for l in s.lemmas:
+            print l.name + " " + str(l.count())
 
 
+
+def brown_corpus_word_frequency(targetWord):
+    words = FreqDist()
+
+    for sentence in brown.sents():
+        for word in sentence:
+            words.inc(word.lower())
+
+    print words[targetWord]
+    print words.freq(targetWord)

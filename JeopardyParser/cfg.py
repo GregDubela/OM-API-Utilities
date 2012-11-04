@@ -37,3 +37,8 @@ gflags.DEFINE_string('regex','.*','A Regex pattern to match set of words')
 
 gflags.DEFINE_integer('maxLength', 14, "The maximum word length for this pattern")
 gflags.DEFINE_integer('minLength', 3, "The minimum word length for this pattern")
+
+
+gflags.DEFINE_string('quizlet_kw','fun','The keyword to search Quizlet for')
+
+gflags.DEFINE_integer('PagesToSearch', 10, 'The keyword to search Quizlet for')

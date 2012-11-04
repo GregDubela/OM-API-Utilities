@@ -34,6 +34,7 @@ import cfg
 from text_utils import *
 from om_utils import *
 from om_client import *
+from fileUtils import *
 from webList_to_OM import *
 
 #Steps:
@@ -102,9 +103,9 @@ def attach_WordNet_meanings_and_convert_list_to_item_dicts(filecontents,splitStr
 #    for w in wordsList:
 #        print w
 
-    wList = subset_list_of_words_to_those_with_meaning(wordsList) #text_utils
+    wList = subset_list_of_words_to_those_with_meaning(wordsList, wordlimit=True) #text_utils
     numW = wList.__len__()
-    print numW
+    #print numW
     if numW <= 2:
         print "Too few words. Skipping OM list creation."
         print "Please Try another set of Words."
@@ -131,113 +132,94 @@ if __name__ == '__main__':
   else:
       client = OpenMindsTwoLeggedClient(cfg.FLAGS.om_key, cfg.FLAGS.om_secret, cfg.FLAGS.om_host)
   
-#  logging.info("Me: %s" % client.get_user('me'))
-
-#  twords = ["abhor","abet","abide","abject"]    
-#  for tw in twords:
-#      word_frequency(tw)
-#      brown_corpus_word_frequency(tw)
-#  sys.exit(0)
-
-
-  # Step 1 Read in the relevant file
   #read the input directory path
-  rawDirPath = r'C:\Users\Ram\Root-1\OM-API-Utilities\ListsToBeCreated'
+  rawDirPath = r'C:\Users\Ram\Root-1\OM-API-Utilities\ListsToBeCreated\3L'
+  #run this in chunks of files
+  startfile = 101  #first file is 0
+  endfile = 150
 
-  #dirList=os.listdir(rawDirPath) #list of filenames
+
 ###########################
   
 # RUNTIME PARAMETERS  
 #  READ_DIRECTLY_FROM_WEB = True #if false read from local file
   READ_DIRECTLY_FROM_WEB = False #if false read from local file
-  DEFINITIONS_PROVIDED = True # flag to say if the file has definitions also
-#  DEFINITIONS_PROVIDED = False # flag to say if the file has definitions also
-  INCLUDE_SAMPLE_WORD_IN_TITLE = False
-  delimiter = ':-'  # what is the delimiter         
+#  DEFINITIONS_PROVIDED = True # flag to say if the file has definitions also
+  DEFINITIONS_PROVIDED = False # flag to say if the file has definitions also
+  delimiter = ':'  # what is the delimiter         
   linesPerItem = 1
-  filename = os.path.join(rawDirPath, "debate_phrases")
-#  filename = os.path.join(rawDirPath, "chef4u")
+
+  L3 = open("3LetterWords.txt","r").read().splitlines()
+  # Step 1 Read in the relevant files
+  fileList = create_list_of_files_for_this_run(rawDirPath,startfile,endfile)
 
   nChunks = 1
   subsectionStart = 1 #default value
   subsectionEnd = nChunks #default value
-#  subsectionStart = 151
+  #  subsectionStart = 151
 #  subsectionEnd = nChunks
 
-  title_base = "Interesting Phrases from the 2nd Presidential Debate - 2012"
-  tags = ["debate", "Romney", "Obama", "Presidential", "Crowley"]
-  desc = "Do you know these terms and phrases bandied about in the 2nd presidential debated?"
-  jsonfname = "debate2.json"
+  title_base = "Learn Words starting with "
+  tags = ["Vocabulary", "Starting with", "word lists"]
+  desc = "The first 3 letters are given, can you find the word based on the definition provided?"
+  jsonfname = "3L.json"
 ###########################
 
   # Step 2. Form Dicts of Items
   # Create a List of Dictionaries  
-  wordsList = []
-  wList = []
   if READ_DIRECTLY_FROM_WEB == False:
-      f = open(filename)
-      if DEFINITIONS_PROVIDED:
-          # use the following instead, when definitions are present
-          itemDictsList = store_words_and_definitions(f, linesPerItem, splitString=delimiter)          
-      else:
-          # create one dictionary for each item in matchedWords
-          itemDictsList = attach_WordNet_meanings_and_convert_list_to_item_dicts(f, splitString=delimiter)
 
-  else:  #reading from the Web
-      itemDictsList = create_megaDictList_from_URLS() #in webList_to_OM.py
+      for index, fl in enumerate(fileList):
+          filename = os.path.join(rawDirPath,fl)
+          # print "index:", startfile+index
+          print "Now reading ", filename 
+          # step 1 open the file
+          words = open(filename,"r").read().splitlines()
+          print len(words),"# of words"
+          if len(words)<5:
+              continue
 
-  
-#  for i in itemDictsList:
-#      print i["word"], i["defn"]
+          f = open(filename)
+          if DEFINITIONS_PROVIDED:
+              # use the following instead, when definitions are present
+              itemDictsList = store_words_and_definitions(f, linesPerItem, splitString=delimiter)          
+          else:
+              # create one dictionary for each item in matchedWords
+              itemDictsList = attach_WordNet_meanings_and_convert_list_to_item_dicts(f, splitString=delimiter)
 
+          if len(itemDictsList)<5:
+              print "-----------------------"
+              continue
 
-  for ss in range(subsectionStart, subsectionEnd+1):
-      subsection = ss
-      if nChunks == ss:
-          subsection = 0       # n mod n is the same as n mod 0      
-
-      if nChunks == 1:    
-          title = title_base 
-      else:
-          title =  title_base + " "+str(ss)
-
-      if INCLUDE_SAMPLE_WORD_IN_TITLE:
-      # Use a Tagword to Identify the lists
-          try:
-              tagword = itemDictsList[ss-1][WORD]
-              print tagword
-          except:
-              tagword = ""
-
-          title = title + " [" + tagword + "] "               
-
-      # Title is now ready
-
+          title = title_base + fl.split(".")[0].upper()
+          tags.append(fl.split(".")[0])
+          # Title is now ready
 
       # Step 3. Create a shell list with List Meta Information
-      ldict = createADictWithListMetadata(title, tags, desc, lformat = "vocabulary", sharing = "public") #omutils
+          ldict = createADictWithListMetadata(title, tags, desc, lformat = "vocabulary", sharing = "public") #omutils
+          tags.pop()
 
       # ######## OPEN MINDS ###########
       # Step 4. Create OM List Shell (Meta)
-      if (cfg.FLAGS.debug_lvl == False): #not debug means create OM Lists
-          newList =  client.create_list(ldict) # the actual OM list shell creation
-          if isResponseErrorFree(newList)!=1:
-              logging.warning("new List creation had errors.")
+          if (cfg.FLAGS.debug_lvl == False): #not debug means create OM Lists
+              newList =  client.create_list(ldict) # the actual OM list shell creation
+              if isResponseErrorFree(newList)!=1:
+                  logging.warning("new List creation had errors.")
 
-          try:
-              lid= newList["id"]
-              print "Creating a new List with ID: ", lid
-          except ValueError, e:
-              logging.warning("new List ID is incorrect")
+              try:
+                  lid= newList["id"]
+                  print "Creating a new List with ID: ", lid
+              except ValueError, e:
+                  logging.warning("new List ID is incorrect")
 
       # step 5: Add all the items to this new List    
-      numI =0
-      numItemsinList = 0
-  #  nChunks defined above
-  #  subsection defined above         # 0,1,2...nchunks-1
-      for iteminfo in itemDictsList:
-          numI += 1
-          if numI % nChunks == subsection: #split the list into N parts using (mod N)
+          numI =0
+          numItemsinList = 0
+
+      #  nChunks defined above
+      #  subsection defined above         # 0,1,2...nchunks-1
+          for iteminfo in itemDictsList:
+              numI += 1
               print unidecode(iteminfo["word"]).upper(), " : ", unidecode(iteminfo["defn"])
               if (cfg.FLAGS.debug_lvl == False): #not debug means create OM Lists      
                   try:
@@ -246,18 +228,15 @@ if __name__ == '__main__':
                       numItemsinList += 1
                   except UnicodeDecodeError:
                       print("Bad character in item ", numI)
-      print title
-      print "-----------------------"
 
-      # Step 6. Record the creations in two separate files
-      fname = "lists_created.txt"
-      if (cfg.FLAGS.debug_lvl == False): 
-          print lid, title, numItemsinList
-          string = lid + "| " + title + "| " + str(numItemsinList) + "\n"
-          write_to_file(fname, string) #om_utils Store the ListIDs for later reference
-          write_object_to_file(jsonfname, itemDictsList) #om_utils Store the JSON for creating other lists
+          print title
+          print "-----------------------"
 
+          # Step 6. Record the creations in two separate files
+          fname = "lists_created.txt"
+          if (cfg.FLAGS.debug_lvl == False): 
+              print lid, title, numItemsinList
+              string = lid + "| " + title + "| " + str(numItemsinList) + "\n"
+              write_to_file(fname, string) #om_utils Store the ListIDs for later reference
+              write_object_to_file(jsonfname, itemDictsList) #om_utils Store the JSON for creating other lists
 
-
-
-#  sys.exit(0)

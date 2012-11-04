@@ -6,8 +6,9 @@ import logging
 import sys
 import csv
 from cfg import *
-from libraries.python.web_util import encode_json, decode_json
+from web_util import encode_json, decode_json
 from codecs import decode
+from unidecode import unidecode
 import re
 
 TITLE = 'title'
@@ -508,10 +509,10 @@ def  write_object_to_file(fname, obj):
   fo.write("\n\n\n\n")
   for o in obj:
     #for k,v in o.items():
-    try:
-      fo.write(o["word"] + ": " + o["defn"] + "\n")
-    except Exception, e:
-      print "unprintable char", e
 
+    try:
+      fo.write(unidecode(o["word"]).upper() + " :: " + unidecode(o["defn"]) + "\n")
+    except Exception, e:
+      print "Unprintable char found:", e
 
   fo.close()

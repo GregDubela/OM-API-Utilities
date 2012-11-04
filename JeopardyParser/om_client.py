@@ -8,7 +8,7 @@ import oauth2
 import time
 import httplib
 import sys
-from libraries.python.web_util import encode_json, decode_json
+from web_util import encode_json, decode_json
 
 class AbstractOpenMindsClient(object):
   '''
