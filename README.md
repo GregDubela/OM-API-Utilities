@@ -24,6 +24,7 @@ Task 3: A "fabricator" - which generates word lists straight from the dictionary
 Take a look at these files first:
 
 `list_loader.py`
+
 (Mostly standard OM code. The list creation and load parts start at around Line 208)
 
 Here's the idea for this works:
@@ -36,7 +37,8 @@ First, get this work.
 In the interest of scaling up the List Creation, I would create a whole bunch of OM list information as CSV's, store in the director `ListsToBeCreated` and then I would create them en masse.
 
 For this, I used the files below.
-`om_create_lists_from_directory.py`
-`om_create_lists_from_textfile.py`
+
+* `om_create_lists_from_directory.py`
+* `om_create_lists_from_textfile.py`
 
 
